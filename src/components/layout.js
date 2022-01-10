@@ -9,6 +9,8 @@ import Content from "./Content"
 // import Header from "./Header"
 import MapReal from "./MapReal"
 import MapDream from "./MapDream"
+
+import LoadableMap from "../components/LoadableMap";
 import styled from "styled-components"
 
 const LayoutComponent = styled.div`
@@ -96,6 +98,7 @@ const Layout = () => {
       <MapComponent>
         <MapRealComponent isVisible={mapLayers.isMapRealActive ? 1 : 0}>
           <MapReal />
+          {/* <LoadableMap/> */}
         </MapRealComponent>
         <MapDreamComponent isVisible={mapLayers.isMapDreamActive ? 1 : 0}>
           <MapDream />
