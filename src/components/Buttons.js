@@ -20,6 +20,10 @@ const ButtonComponent = styled.div`
     border: none;
     background: none;
   }
+  button:hover{
+    opacity: 75%;
+    box-shadow: 0px 1.5px black;
+  }
 `
 
 const Buttons = ({ active, onClick }) => {

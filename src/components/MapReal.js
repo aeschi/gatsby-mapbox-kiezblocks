@@ -32,6 +32,8 @@ const MapReal = () => {
       "top-right"
     )
 
+
+    
     setMap(map)
 
     return () => map.remove()
