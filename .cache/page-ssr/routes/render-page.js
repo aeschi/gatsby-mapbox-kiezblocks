@@ -6148,7 +6148,7 @@ module.exports = JSON.parse('{"name":"gatsby","description":"Blazing fast modern
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"polyfill":["/polyfill-635a9dfd597478a1f0fa.js"],"app":["/app-e8a66da75a78dd75f68e.js"],"component---src-pages-404-js":["/component---src-pages-404-js-7235da85c145bdba2d24.js"],"component---src-pages-index-js":["/component---src-pages-index-js-edd11ff962d2b4b98934.js"],"component---src-templates-using-dsg-js":["/component---src-templates-using-dsg-js-a30a535ba45aba31ba89.js"]}');
+module.exports = JSON.parse('{"polyfill":["/polyfill-635a9dfd597478a1f0fa.js"],"app":["/app-95156fb3a4ef5f00b9e2.js"],"component---src-pages-404-js":["/component---src-pages-404-js-7235da85c145bdba2d24.js"],"component---src-pages-index-js":["/component---src-pages-index-js-c479b99b071dae76140d.js"],"component---src-templates-using-dsg-js":["/component---src-templates-using-dsg-js-313a5724a972486e21c8.js"]}');
 
 /***/ })
 
@@ -6224,7 +6224,7 @@ module.exports = JSON.parse('{"polyfill":["/polyfill-635a9dfd597478a1f0fa.js"],"
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "" + ({"678":"component---src-pages-index-js","713":"component---src-templates-using-dsg-js","883":"component---src-pages-404-js"}[chunkId] || chunkId) + ".js";
+/******/ 			return "" + {"678":"component---src-pages-index-js","713":"component---src-templates-using-dsg-js","883":"component---src-pages-404-js"}[chunkId] + ".js";
 /******/ 		};
 /******/ 	})();
 /******/ 	

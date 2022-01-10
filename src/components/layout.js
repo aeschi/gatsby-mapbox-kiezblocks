@@ -10,7 +10,6 @@ import Content from "./Content"
 import MapReal from "./MapReal"
 import MapDream from "./MapDream"
 
-import LoadableMap from "../components/LoadableMap";
 import styled from "styled-components"
 
 const LayoutComponent = styled.div`
