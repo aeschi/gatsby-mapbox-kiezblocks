@@ -16,11 +16,12 @@ const ButtonComponent = styled.div`
   justify-content: left;
   box-sizing: border-box;
   button {
-    padding: 3px;
+    width: 50%;
+    padding: 2px;
     border: none;
     background: none;
   }
-  button:hover{
+  button:hover {
     opacity: 75%;
     box-shadow: 0px 1.5px black;
   }
@@ -70,7 +71,7 @@ const Buttons = ({ active, onClick }) => {
             onClick={item.onClick}
             isactive={active === key ? 1 : 0}
           >
-            <img src={item.buttonImg} height="85%" alt={item.label}/>
+            <img src={item.buttonImg} height="85%" alt={item.label} />
             {/* {item.label} */}
           </button>
         )

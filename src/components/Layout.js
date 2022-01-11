@@ -22,6 +22,7 @@ const LayoutComponent = styled.div`
 `
 
 const BarComponent = styled.div`
+  width: 100%;
   flex: 1;
   padding: 0 1rem;
   display: flex;
@@ -76,7 +77,7 @@ const Layout = () => {
   //     site {
   //       siteMetadata {
   //         title
-  //       } 
+  //       }
   //     }
   //   }
   // `)
@@ -97,7 +98,6 @@ const Layout = () => {
       <MapComponent>
         <MapRealComponent isVisible={mapLayers.isMapRealActive ? 1 : 0}>
           <MapReal />
-          {/* <LoadableMap/> */}
         </MapRealComponent>
         <MapDreamComponent isVisible={mapLayers.isMapDreamActive ? 1 : 0}>
           <MapDream />

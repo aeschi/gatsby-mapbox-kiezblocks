@@ -23,6 +23,8 @@ const MapReal = () => {
       // [lng, lat]
       center: [13.416, 52.513],
       zoom: 11,
+      minZoom: 9,
+      maxZoom: 18,
     })
 
     map.addControl(
@@ -31,6 +33,23 @@ const MapReal = () => {
       }),
       "top-right"
     )
+
+    map.on("click", event => {
+      const features = map.queryRenderedFeatures(event.point, {
+        layers: ["a2-feelings"],
+      })
+      if (!features.length) {
+        return
+      }
+      const feature = features[0]
+
+      const popup = new mapboxgl.Popup({ offset: [0, -15] })
+        .setLngLat(feature.geometry.coordinates)
+        .setHTML(
+          `<h3>Gefühl: ${feature.properties.Gefühl}</h3><p>${feature.properties.descriptio}</p>`
+        )
+        .addTo(map)
+    })
 
     map.on("load", () => {
       // Add an image to use as a custom marker
