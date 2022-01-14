@@ -29,11 +29,12 @@ const BarComponent = styled.div`
   flex-direction: column;
   overflow-y: scroll;
   h1 {
-    font-size: 4rem;
+    font-size: 1.75rem;
     text-transform: uppercase;
+    font
   }
   h2 {
-    font-size: 2.25;
+    font-size: 1.5rem;
     text-transform: uppercase;
   }
 `
@@ -72,6 +73,17 @@ const Layout = () => {
 
   const [activeLayer, setActiveLayer] = useState(0)
 
+  const maps = [
+    {
+      mapName: MapReal,
+    },
+    {
+      mapName: MapDream,
+    },
+  ]
+  // const MapComp = maps[activeLayer].mapName
+
+  console.log("activeLayer: ", activeLayer)
   // const data = useStaticQuery(graphql`
   //   query SiteTitleQuery {
   //     site {
@@ -87,7 +99,7 @@ const Layout = () => {
       {/* <Header siteTitle={data.site.siteMetadata?.title || `Title`} /> */}
 
       <BarComponent>
-        <h1>KIEZBLOCKS</h1>
+        <h1>[T]räume deinen Kiez frei</h1>
 
         <Buttons active={activeLayer} onClick={setActiveLayer} />
         <Content activeContent={activeLayer} />
@@ -97,10 +109,11 @@ const Layout = () => {
 
       <MapComponent>
         <MapRealComponent isVisible={mapLayers.isMapRealActive ? 1 : 0}>
-          <MapReal />
+          <MapReal activeMap={activeLayer} />
+          {/* <MapComp /> */}
         </MapRealComponent>
         <MapDreamComponent isVisible={mapLayers.isMapDreamActive ? 1 : 0}>
-          <MapDream />
+          {/* <MapDream /> */}
         </MapDreamComponent>
       </MapComponent>
     </LayoutComponent>

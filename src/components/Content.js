@@ -21,7 +21,7 @@ const textContent = [
           dort? Was sehe ich, was rieche ich, was höre ich, was spüre ich?",
   },
   {
-    title: "Funktion",
+    title: "Hier und jetzt",
     text: "Neben oft unausgesprochenen Träumen gibt es auch ausformulierte\
             Visionen mit dem Anspruch wirksam zu werden. In diesem Kapitel soll es \
             um eine dieser Visionen gehen - die Kiezblöcke. Wir wollen nicht allzu\
@@ -31,17 +31,6 @@ const textContent = [
             einzubringen, selbst visionär zu sein und sich zu beteiligen. Die\
             Karte kann helfen Kontakt zu den einzelnen Initiativen in Berlin\
             herzustellen.",
-  },
-  {
-    title: "Qualität",
-    text: "Als nächstes soll es daum gehen sich mit den Qualitäten und\
-            Unzulänglichkeiten der öffentlichen Räume in Berlin zu beschäftigen.\
-            In unserem Workshop haben wir mit den Teilnehmer:innen über Chancen\
-            und Risiken, Stärken und Schwächen des öffentlichen Raums gesprochen.\
-            Außerdem haben wir einige Personen in Interviews nach Orten gefragt\
-            die sie als besonders gut oder schlecht gelungene öffentliche Räume\
-            bezeichnen würden. Wir wollen darüber schreiben was diese Qualitäten\
-            sind und auf der Karte zeigen wo sie zu finden sind.",
   },
   {
     title: "Traum",
@@ -59,6 +48,17 @@ const textContent = [
             Optimismus.",
   },
   {
+    title: "Qualität",
+    text: "Als nächstes soll es daum gehen sich mit den Qualitäten und\
+            Unzulänglichkeiten der öffentlichen Räume in Berlin zu beschäftigen.\
+            In unserem Workshop haben wir mit den Teilnehmer:innen über Chancen\
+            und Risiken, Stärken und Schwächen des öffentlichen Raums gesprochen.\
+            Außerdem haben wir einige Personen in Interviews nach Orten gefragt\
+            die sie als besonders gut oder schlecht gelungene öffentliche Räume\
+            bezeichnen würden. Wir wollen darüber schreiben was diese Qualitäten\
+            sind und auf der Karte zeigen wo sie zu finden sind.",
+  },
+  {
     title: "Vision",
     text: "Neben oft unausgesprochenen Träumen gibt es auch ausformulierte\
             Visionen mit dem Anspruch wirksam zu werden. In diesem Kapitel soll es\
@@ -70,7 +70,7 @@ const textContent = [
             Karte kann helfen Kontakt zu den einzelnen Initiativen in Berlin\
             herzustellen.",
   },
-  { title: "Worum geht's", text: "Lorem Ipsum" },
+  { title: "Zum Projekt", text: "Lorem Ipsum" },
 ]
 
 const Content = ({ activeContent }) => {

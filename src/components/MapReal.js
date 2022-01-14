@@ -10,7 +10,25 @@ const mapContainerStyle = {
   height: "100vh",
 }
 
-const MapReal = () => {
+const activeData = [
+  {
+    dataLayer: "theme-dream",
+  },
+  {
+    dataLayer: "theme-reality",
+  },
+  {
+    dataLayer: "funktion",
+  },
+  {
+    dataLayer: "dream",
+  },
+  {
+    dataLayer: "vision-kiezblocks_marker",
+  },
+]
+
+const MapReal = ({ activeMap }) => {
   const mapContainerRef = useRef(null)
 
   const [map, setMap] = useState(null)
@@ -34,9 +52,22 @@ const MapReal = () => {
       "top-right"
     )
 
+    map.on("load", () => {
+      // console.log(map.data)
+      // if (map.getLayer("vision-kiezblocks_outline"))
+      //   map.removeLayer("vision-kiezblocks_outline")
+      // map.setLayoutProperty("vision-kiezblocks_outline", "visibility", "none")
+    })
+
+    map.on("render", () => {
+      console.log("A render event occurred.")
+
+      console.log(activeData[activeMap].dataLayer)
+    })
+
     map.on("click", event => {
       const features = map.queryRenderedFeatures(event.point, {
-        layers: ["a2-feelings"],
+        layers: ["dream"],
       })
       if (!features.length) {
         return
@@ -46,139 +77,23 @@ const MapReal = () => {
       const popup = new mapboxgl.Popup({ offset: [0, -15] })
         .setLngLat(feature.geometry.coordinates)
         .setHTML(
-          `<h3>Gefühl: ${feature.properties.Gefühl}</h3><p>${feature.properties.descriptio}</p>`
+          `<h3>Gefühl: ${feature.properties.Gefuehl}</h3><p>${feature.properties.Annotation}</p>`
         )
         .addTo(map)
-    })
 
-    map.on("load", () => {
-      // Add an image to use as a custom marker
-      map.loadImage(
-        "https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png",
-        (error, image) => {
-          if (error) throw error
-          map.addImage("custom-marker", image)
-
-          // Add a GeoJSON source
-          map.addSource("feelings", {
-            type: "geojson",
-            data: {
-              type: "FeatureCollection",
-              name: "A2_Export",
-              features: [
-                {
-                  type: "Feature",
-                  properties: {
-                    descriptio:
-                      "Allee, Straße, hohe alte Häuser, teilweise schon renoviert.",
-                    Gefühl: "indifferent",
-                    Stichwort: 0,
-                  },
-                  geometry: {
-                    type: "Point",
-                    coordinates: [13.337853, 52.497706],
-                  },
-                },
-                {
-                  type: "Feature",
-                  properties: {
-                    descriptio:
-                      "Am Wochenende steht hier immer ein Gemüsestand. Ich kaufe zwar nicht oft bei ihm, aber das merkantile Treiben auf der Straße gefällt mir.",
-                    Gefühl:
-                      "Erinnerungen an den Wochenmarkt in meinem Heimatstädtchen",
-                    Stichwort: 0,
-                  },
-                  geometry: {
-                    type: "Point",
-                    coordinates: [13.384759, 52.484355],
-                  },
-                },
-                {
-                  type: "Feature",
-                  properties: {
-                    descriptio: "Ampel überquert.",
-                    Gefühl: "zielstrebig.",
-                    Stichwort: 0,
-                  },
-                  geometry: {
-                    type: "Point",
-                    coordinates: [13.339634, 52.499771],
-                  },
-                },
-                {
-                  type: "Feature",
-                  properties: {
-                    descriptio:
-                      "Angekommen im Backaro Ich genieße den Kaffee auf dem Gehweg unter den Bäumen. Ich denke mir, dass es bei uns der Straße so viel Platz für Bäume geben würde. Wären die vielen Autos nicht, die chaotisch parken.",
-                    Gefühl: "0",
-                    Stichwort: 0,
-                  },
-                  geometry: {
-                    type: "Point",
-                    coordinates: [13.461438, 52.518354],
-                  },
-                },
-                {
-                  type: "Feature",
-                  properties: {
-                    descriptio:
-                      "Auf dem Markt tummeln sich viele Leute (mit Abstand und Maske) . Ein Glück fahren hier seit Corona keine Autos mehr und die Fläche wurde vergrößert. Ich gehe einmal herum",
-                    Gefühl: "0",
-                    Stichwort: 0,
-                  },
-                  geometry: {
-                    type: "Point",
-                    coordinates: [13.460505, 52.510299],
-                  },
-                },
-                {
-                  type: "Feature",
-                  properties: {
-                    descriptio: "Baustelle.",
-                    Gefühl: "indifferent.",
-                    Stichwort: 0,
-                  },
-                  geometry: {
-                    type: "Point",
-                    coordinates: [13.340373, 52.501986],
-                  },
-                },
-              ],
-            },
-          })
-
-          // Add a symbol layer
-          // map.addLayer({
-          //   id: "feelings",
-          //   type: "symbol",
-          //   source: "feelings",
-          //   layout: {
-          //     "icon-image": "custom-marker",
-          //     // get the title name from the source's "title" property
-          //     "text-field": ["get", "Gefühl"],
-          //     "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
-          //     "text-offset": [0, 1.35],
-          //     "text-anchor": "top",
-          //   },
-          // })
-        }
+      map.setLayoutProperty(
+        activeData[activeMap].dataLayer,
+        "visibility",
+        "none"
       )
+
+      map.panTo(feature.geometry.coordinates, { duration: 5000 })
     })
-
-    // create the popup
-    // const popup = new mapboxgl.Popup({ offset: 25 }).setText(
-    //   "Construction on the Washington Monument began in 1848."
-    // )
-
-    // const marker1 = new mapboxgl.Marker()
-    //   .setLngLat([13.326, 52.543])
-    //   .setPopup(popup)
-    //   .addTo(map)
 
     setMap(map)
 
     return () => map.remove()
-  }, [])
+  }, [activeMap])
 
   return <div ref={mapContainerRef} style={mapContainerStyle} />
 }

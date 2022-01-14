@@ -2,6 +2,11 @@
 "type": "FeatureCollection",
 "name": "A2_Export",
 "features": [
+{ "type": "Feature", "properties": { "descriptio": "0", "Gefühl": "0", "Stichwort": null }, "geometry": { "type": "Point", "coordinates": [ 13.343496, 52.528289 ] } },
+{ "type": "Feature", "properties": { "descriptio": "0", "Gefühl": "0", "Stichwort": null }, "geometry": { "type": "Point", "coordinates": [ 13.465768, 52.47915 ] } },
+{ "type": "Feature", "properties": { "descriptio": "0", "Gefühl": "0", "Stichwort": null }, "geometry": { "type": "Point", "coordinates": [ 13.45789, 52.477449 ] } },
+{ "type": "Feature", "properties": { "descriptio": "0", "Gefühl": "0", "Stichwort": null }, "geometry": { "type": "Point", "coordinates": [ 13.426323, 52.536143 ] } },
+{ "type": "Feature", "properties": { "descriptio": "0", "Gefühl": "0", "Stichwort": null }, "geometry": { "type": "Point", "coordinates": [ 13.387588, 52.533376 ] } },
 { "type": "Feature", "properties": { "descriptio": "Allee, Straße, hohe alte Häuser, teilweise schon renoviert.", "Gefühl": "indifferent", "Stichwort": 0 }, "geometry": { "type": "Point", "coordinates": [ 13.337853, 52.497706 ] } },
 { "type": "Feature", "properties": { "descriptio": "Am Wochenende steht hier immer ein Gemüsestand. Ich kaufe zwar nicht oft bei ihm, aber das merkantile Treiben auf der Straße gefällt mir.", "Gefühl": "Erinnerungen an den Wochenmarkt in meinem Heimatstädtchen", "Stichwort": 0 }, "geometry": { "type": "Point", "coordinates": [ 13.384759, 52.484355 ] } },
 { "type": "Feature", "properties": { "descriptio": "Ampel überquert.", "Gefühl": "zielstrebig.", "Stichwort": 0 }, "geometry": { "type": "Point", "coordinates": [ 13.339634, 52.499771 ] } },
@@ -73,6 +78,8 @@
 { "type": "Feature", "properties": { "descriptio": "Vor dem Cafe stehen schon viele Leute an", "Gefühl": "0", "Stichwort": 0 }, "geometry": { "type": "Point", "coordinates": [ 13.460183, 52.509652 ] } },
 { "type": "Feature", "properties": { "descriptio": "Vor mir ist die Kasachische Botschaft und überall Kameras. Links sind alles Häuser mit Gardinen und kleinen Gartenzäunchen um nichts zu verpassen.", "Gefühl": "beobachtet", "Stichwort": 0 }, "geometry": { "type": "Point", "coordinates": [ 13.393162, 52.590527 ] } },
 { "type": "Feature", "properties": { "descriptio": "Weitere Häuser, so wie vorher. Ich beschleunige die Schritte.", "Gefühl": "zielstrebig, den Tag planend.", "Stichwort": 0 }, "geometry": { "type": "Point", "coordinates": [ 13.390636, 52.590095 ] } },
-{ "type": "Feature", "properties": { "descriptio": "Ziel des Spaziergang: Falafel", "Gefühl": "zufrienden", "Stichwort": 0 }, "geometry": { "type": "Point", "coordinates": [ 13.338143, 52.526308 ] } }
+{ "type": "Feature", "properties": { "descriptio": "Ziel des Spaziergang: Falafel", "Gefühl": "zufrienden", "Stichwort": 0 }, "geometry": { "type": "Point", "coordinates": [ 13.338143, 52.526308 ] } },
+{ "type": "Feature", "properties": { "descriptio": "", "Gefühl": "", "Stichwort": 0 }, "geometry": null },
+{ "type": "Feature", "properties": { "descriptio": "", "Gefühl": "", "Stichwort": null }, "geometry": null }
 ]
 }

@@ -21,6 +21,10 @@ h1, h2 {
   font-family: 'PPObjectSans Bold';
 }
 
+p {
+  line-height: 1.2rem;
+}
+
 // COLORS
 :root{
     --background-green: #57ab80;
