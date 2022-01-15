@@ -83,7 +83,6 @@ const Layout = () => {
   ]
   // const MapComp = maps[activeLayer].mapName
 
-  console.log("activeLayer: ", activeLayer)
   // const data = useStaticQuery(graphql`
   //   query SiteTitleQuery {
   //     site {
@@ -103,18 +102,14 @@ const Layout = () => {
 
         <Buttons active={activeLayer} onClick={setActiveLayer} />
         <Content activeContent={activeLayer} />
-
-        <Toggle mapLayers={mapLayers} setMapLayers={setMapLayers} />
+        {/* <Toggle mapLayers={mapLayers} setMapLayers={setMapLayers} /> */}
       </BarComponent>
 
       <MapComponent>
         <MapRealComponent isVisible={mapLayers.isMapRealActive ? 1 : 0}>
-          <MapReal activeMap={activeLayer} />
+          <MapReal activeMap={activeLayer} onClick={setActiveLayer} />
           {/* <MapComp /> */}
         </MapRealComponent>
-        <MapDreamComponent isVisible={mapLayers.isMapDreamActive ? 1 : 0}>
-          {/* <MapDream /> */}
-        </MapDreamComponent>
       </MapComponent>
     </LayoutComponent>
   )

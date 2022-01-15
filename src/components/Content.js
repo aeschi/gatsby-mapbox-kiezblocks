@@ -34,18 +34,8 @@ const textContent = [
   },
   {
     title: "Traum",
-    text: "Ob mit oder ohne fachlichem Vorwissen oder einer klaren Meinung, als\
-            wir in unserem Workshop die „Traumkraft“ der Teilnehmer:innen angeregt\
-            haben ist uns klar geworden, dass die meisten doch eine Vorstellung\
-            davon haben wie es sein könnte. In diesem Kapitel wollen wir die\
-            Raum-Träume einiger Berliner:innen darstellen. Manche sind\
-            appellartige Forderungen an die Stadt, andere sind erstaunlich nahe an\
-            der Realität, wieder andere sind fantastisch und wild. Es ist\
-            interessant zu vergleichen, wie, an welchen Stellen und ob sich die\
-            Träume von der Realität unterscheiden. Vielleicht kann dieses Kapitel\
-            auch inspirieren und anregen dazu zu träumen, davon wie es sein könnte\
-            - ohne zu negieren, ohne zu nörgeln aber dafür mit Kreativität und\
-            Optimismus.",
+    text: "Wie schaut der Spaziergang durch deinen Stadtteil aus, wenn Du deine Haustüre auf machst und alles, was du dort erlebst, kannst du selbst gestalten? - Dein eigener Kieztraum - Was siehst Du, was hörst du ?, was riechst du? - Wen oder was triffst du auf deinem Weg? Und vor allem, was machen diese Erlebnisse mit dir?\
+            Auch das haben wir die selben Berliner*innen gefragt und sie gebeten ihre Erlebnisse auf der Karte rechts einzutragen. ---> hier kommt der switch button hin Realität/Traum",
   },
   {
     title: "Qualität",
@@ -74,7 +64,7 @@ const textContent = [
 ]
 
 const Content = ({ activeContent }) => {
-  return (
+  return ( 
     <>
       <div>
         <h2>{textContent[activeContent].title}</h2>
