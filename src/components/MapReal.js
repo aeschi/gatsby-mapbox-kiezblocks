@@ -48,7 +48,7 @@ const MapReal = ({ activeMap, onClick }) => {
       accessToken: MAPBOX_TOKEN,
       style: "mapbox://styles/annaeschi/cky49k53x53po15pcfsa6uhle",
       // [lng, lat]
-      center: [13.416, 52.513],
+      center: [13.38, 52.528],
       zoom: 11,
       minZoom: 9,
       maxZoom: 18,

@@ -9,15 +9,16 @@ import Button_info from "../images/buttons/button_info.svg"
 // import { func, shape, bool } from "prop-types"
 
 const ButtonComponent = styled.div`
-  color: #000000;
+  /* color: #000000; */
   display: flex;
-  flex-direction: row;
-  align-items: left;
+  /* flex-direction: row; */
+  /* align-items: left; */
   justify-content: left;
   box-sizing: border-box;
   button {
-    width: 50%;
+    width: 16.6%;
     padding: 2px;
+    margin: 1px;
     border: none;
     background: none;
   }
@@ -25,37 +26,47 @@ const ButtonComponent = styled.div`
     opacity: 75%;
     box-shadow: 0px 1.5px black;
   }
+  button:active {
+    box-shadow: 0px 1.5px black;
+  }
+  h4{
+    margin: 0;
+    padding: 0;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    /* line-height: 0.2rem; */
+  }
 `
 
 const Buttons = ({ active, onClick }) => {
   const buttonContent = [
     {
-      label: "Kapitel 1",
+      label: "Thema",
       buttonImg: Button_1,
       onClick: () => onClick(0),
     },
     {
-      label: "Kapitel 2",
+      label: "Impres-sionen",
       buttonImg: Button_2,
       onClick: () => onClick(1),
     },
     {
-      label: "Kapitel 3",
+      label: "Impres- sionen",
       buttonImg: Button_3,
       onClick: () => onClick(2),
     },
     {
-      label: "Kapitel 4",
+      label: "Qualität",
       buttonImg: Button_4,
       onClick: () => onClick(3),
     },
     {
-      label: "Kapitel 5",
+      label: "Vision",
       buttonImg: Button_5,
       onClick: () => onClick(4),
     },
     {
-      label: "Info",
+      label: "Zum Projekt",
       buttonImg: Button_info,
       onClick: () => onClick(5),
     },
@@ -71,8 +82,9 @@ const Buttons = ({ active, onClick }) => {
             onClick={item.onClick}
             isactive={active === key ? 1 : 0}
           >
-            <img src={item.buttonImg} height="85%" alt={item.label} />
+            <img src={item.buttonImg} height="65%" alt={item.label} />
             {/* {item.label} */}
+            <h4>{item.label}</h4>
           </button>
         )
       })}

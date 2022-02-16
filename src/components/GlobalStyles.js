@@ -1,28 +1,50 @@
-import { createGlobalStyle } from "styled-components";
-import PPObjectSansBold from "../fonts/PPObjectSans-Bold.woff"
-import PPObjectSansBold2 from "../fonts/PPObjectSans-Bold.woff2"
+import { createGlobalStyle } from "styled-components"
+
+import IBMPlexSansReg from "../fonts/IBMPlexSans-Regular.woff"
+import IBMPlexSansReg2 from "../fonts/IBMPlexSans-Regular.woff2"
+
+import IBMPlexSansCondensedReg from "../fonts/IBMPlexSansCondensed-Regular.woff"
+import IBMPlexSansCondensedReg2 from "../fonts/IBMPlexSansCondensed-Regular.woff2"
 
 const GlobalStyle = createGlobalStyle`
 
 // FONT
 @font-face {
-  font-family: 'PPObjectSans Bold';
-  src: url(${PPObjectSansBold2}) format('woff2'),
-       url(${PPObjectSansBold}) format('woff');
+  font-family: 'IBMPlexSansReg';
+  src: url(${IBMPlexSansReg2}) format('woff2'),
+       url(${IBMPlexSansReg}) format('woff');
+       
+       font-family: 'IBMPlexSansCondensedReg';
+  src: url(${IBMPlexSansCondensedReg2}) format('woff2'),
+       url(${IBMPlexSansCondensedReg}) format('woff');
 }
+
 
 html {
   font-size: 16px;
-  font-family: "Helvetica", sans-serif;
+  font-family: "IBMPlexSansReg", sans-serif;
   line-break: normal;
 }
 
-h1, h2 {
-  font-family: 'PPObjectSans Bold';
+h1{
+  font-family: 'IBMPlexSansCondensedReg';
+  font-size: 3.5rem;
+  padding: 0;
+  margin-top:0.25rem;
+  margin-bottom:0.25rem;
+}
+
+h2{
+  font-family: 'IBMPlexSansCondensedReg';
+  font-size: 1.5rem;
+}
+
+h4{
+  font-family: 'IBMPlexSansCondensedReg';
 }
 
 p {
-  line-height: 1.2rem;
+  line-height: 1.6rem;
 }
 
 // COLORS
@@ -35,6 +57,6 @@ p {
     --blue: #107CB3;
 }
 
-`;
+`
 
-export default GlobalStyle;
+export default GlobalStyle
