@@ -21,7 +21,7 @@ const LayoutComponent = styled.div`
 `
 
 const BarComponent = styled.div`
-  min-width: 400px;
+  min-width: 550px;
   flex: 1;
   padding: 0 1rem;
   display: flex;

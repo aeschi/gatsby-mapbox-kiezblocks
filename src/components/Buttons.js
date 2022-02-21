@@ -4,7 +4,6 @@ import Button_1 from "../images/buttons/button_1.svg"
 import Button_2 from "../images/buttons/button_2.svg"
 import Button_3 from "../images/buttons/button_3.svg"
 import Button_4 from "../images/buttons/button_4.svg"
-import Button_5 from "../images/buttons/button_5.svg"
 import Button_info from "../images/buttons/button_info.svg"
 // import { func, shape, bool } from "prop-types"
 
@@ -13,7 +12,7 @@ const ButtonComponent = styled.div`
   display: flex;
   /* flex-direction: row; */
   /* align-items: left; */
-  justify-content: left;
+  justify-content: space-around;
   box-sizing: border-box;
   button {
     width: 16.6%;
@@ -24,9 +23,6 @@ const ButtonComponent = styled.div`
   }
   button:hover {
     opacity: 75%;
-    box-shadow: 0px 1.5px black;
-  }
-  button:active {
     box-shadow: 0px 1.5px black;
   }
   h4{
@@ -46,29 +42,24 @@ const Buttons = ({ active, onClick }) => {
       onClick: () => onClick(0),
     },
     {
-      label: "Impres-sionen",
+      label: "Impressionen",
       buttonImg: Button_2,
       onClick: () => onClick(1),
     },
     {
-      label: "Impres- sionen",
+      label: "Qualität",
       buttonImg: Button_3,
       onClick: () => onClick(2),
     },
     {
-      label: "Qualität",
+      label: "Vision",
       buttonImg: Button_4,
       onClick: () => onClick(3),
     },
     {
-      label: "Vision",
-      buttonImg: Button_5,
-      onClick: () => onClick(4),
-    },
-    {
       label: "Zum Projekt",
       buttonImg: Button_info,
-      onClick: () => onClick(5),
+      onClick: () => onClick(4),
     },
   ]
 

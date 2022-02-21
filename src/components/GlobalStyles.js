@@ -26,12 +26,13 @@ html {
   line-break: normal;
 }
 
-h1{
+h3{
   font-family: 'IBMPlexSansCondensedReg';
   font-size: 3.5rem;
   padding: 0;
   margin-top:0.25rem;
   margin-bottom:0.25rem;
+  text-transform: uppercase;
 }
 
 h2{
@@ -45,6 +46,26 @@ h4{
 
 p {
   line-height: 1.6rem;
+}
+
+
+a:link{
+  color: black;
+  text-decoration: none;
+  font-weight: 550;
+}
+
+a:visited{
+  color: #2b2b2b;
+}
+
+a:hover{
+ color: #2b2b2b;
+ text-decoration: underline;
+} 
+
+a:active{
+  color: #2b2b2b;
 }
 
 // COLORS

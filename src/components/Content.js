@@ -1,4 +1,9 @@
 import React from "react"
+import Thema from "./pages/Thema"
+import Impressionen from "./pages/Impressionen"
+import Quality from "./pages/Quality"
+import Vision from "./pages/Vision"
+import Info from "./pages/Info"
 
 const textContent = [
   {
@@ -48,12 +53,15 @@ const textContent = [
 ]
 
 const Content = ({ activeContent }) => {
+  // console.log(activeContent)
   return (
     <>
       <div>
-        <h1>{textContent[activeContent].title}</h1>
-        <p>{textContent[activeContent].text1}</p>
-        <p>{textContent[activeContent].text2}</p>
+        {activeContent === 0 && <Thema />}
+        {activeContent === 1 && <Impressionen />}
+        {activeContent === 2 && <Quality />}
+        {activeContent === 3 && <Vision />}
+        {activeContent === 4 && <Info />}
       </div>
     </>
   )

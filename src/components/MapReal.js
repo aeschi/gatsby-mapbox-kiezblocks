@@ -16,11 +16,7 @@ const activeData = [
     title: "",
   },
   {
-    dataLayer: "funktion",
-    title: "Gefühl: ",
-  },
-  {
-    dataLayer: "dream",
+    dataLayer: "impression",
     title: "Gefühl: ",
   },
   {
@@ -72,15 +68,15 @@ const MapReal = ({ activeMap, onClick }) => {
         "visibility",
         "visible"
       )
-      // if (activeMap == 5) {
-      //   activeData.map((item, key) => {
-      //     map.setLayoutProperty(
-      //       item[key].dataLayer + "_glow",
-      //       "visibility",
-      //       "visible"
-      //     )
-      //   })
-      // }
+      if (activeMap == 5) {
+        activeData.map((item, key) => {
+          map.setLayoutProperty(
+            item[key].dataLayer + "_glow",
+            "visibility",
+            "visible"
+          )
+        })
+      }
     })
 
     map.on("click", event => {
@@ -93,14 +89,14 @@ const MapReal = ({ activeMap, onClick }) => {
       const feature = features[0]
 
       let lngLat
-      if (activeMap == 4) {
+      if (activeMap === 4) {
         lngLat = feature.geometry.coordinates[0][0]
       } else {
         lngLat = feature.geometry.coordinates
       }
 
       let textInput
-      if (activeMap == 4) {
+      if (activeMap === 4) {
         textInput = feature.properties.web
       } else {
         textInput = feature.properties.Annotation
