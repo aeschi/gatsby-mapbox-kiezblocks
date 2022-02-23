@@ -42,7 +42,7 @@ const MapReal = ({ activeMap, onClick }) => {
     const map = new mapboxgl.Map({
       container: mapContainerRef.current,
       accessToken: MAPBOX_TOKEN,
-      style: "mapbox://styles/annaeschi/cky49k53x53po15pcfsa6uhle",
+      style: "mapbox://styles/annaeschi/ckzxw4a57000615ntmvmxc271",
       // [lng, lat]
       center: [13.38, 52.528],
       zoom: 11,
