@@ -52,13 +52,14 @@ const textContent = [
   },
 ]
 
-const Content = ({ activeContent }) => {
-  // console.log(activeContent)
+const Content = ({ activeContent, activeState, onClick }) => {
   return (
     <>
       <div>
         {activeContent === 0 && <Thema />}
-        {activeContent === 1 && <Impressionen />}
+        {activeContent === 1 && (
+          <Impressionen activeState={activeState} onClick={onClick} />
+        )}
         {activeContent === 2 && <Quality />}
         {activeContent === 3 && <Vision />}
         {activeContent === 4 && <Info />}

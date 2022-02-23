@@ -1,13 +1,14 @@
 import React from "react"
 import { useState } from "react"
 import PropTypes from "prop-types"
-import Toggle from "./Toggle"
 import Buttons from "./Buttons"
 import Content from "./Content"
 // import { useStaticQuery, graphql } from "gatsby"
 // import Header from "./Header"
 import MapReal from "./MapReal"
 import MapDream from "./MapDream"
+
+import ButtonSwitch from "./ButtonSwitch"
 
 import styled from "styled-components"
 
@@ -61,6 +62,14 @@ const MapDreamComponent = styled.div`
   visibility: ${({ isVisible }) => (isVisible ? "visible" : "hidden")};
 `
 
+const ButtonSwitchComponent = styled.div`
+  /* flex: 2;
+  display: flex; */
+  /* position: absolute; */
+  /* top: 10px;
+  left: 10px; */
+`
+
 const Layout = () => {
   const [mapLayers, setMapLayers] = useState({
     isMapRealActive: true,
@@ -68,6 +77,8 @@ const Layout = () => {
   })
 
   const [activeLayer, setActiveLayer] = useState(0)
+
+  const [activeLayerImp, setActiveLayerImp] = useState(0)
 
   const maps = [
     {
@@ -95,16 +106,22 @@ const Layout = () => {
 
       <BarComponent>
         <h2>[T]räume deinen Kiez frei</h2>
-
         <Buttons active={activeLayer} onClick={setActiveLayer} />
-        <Content activeContent={activeLayer} />
-        {/* <Toggle mapLayers={mapLayers} setMapLayers={setMapLayers} /> */}
+        <Content
+          activeContent={activeLayer}
+          activeState={activeLayerImp}
+          onClick={setActiveLayerImp}
+        />
+        <ButtonSwitchComponent>
+          {activeLayer === 1 && (
+            <ButtonSwitch active={activeLayerImp} onClick={setActiveLayerImp} />
+          )}
+        </ButtonSwitchComponent>
       </BarComponent>
 
       <MapComponent>
         <MapRealComponent isVisible={mapLayers.isMapRealActive ? 1 : 0}>
           <MapReal activeMap={activeLayer} onClick={setActiveLayer} />
-          {/* <MapComp /> */}
         </MapRealComponent>
       </MapComponent>
     </LayoutComponent>

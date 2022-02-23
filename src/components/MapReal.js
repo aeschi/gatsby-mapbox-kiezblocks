@@ -12,11 +12,11 @@ const mapContainerStyle = {
 
 const activeData = [
   {
-    dataLayer: "theme-dream-reality",
+    dataLayer: "thema-dream-reality",
     title: "",
   },
   {
-    dataLayer: "impression",
+    dataLayer: "impression_reality",
     title: "Gefühl: ",
   },
   {
@@ -24,7 +24,7 @@ const activeData = [
     title: "",
   },
   {
-    dataLayer: "vision-kiezblocks_marker",
+    dataLayer: "vision-kiezblocks",
     title: "",
   },
   {
@@ -105,16 +105,16 @@ const MapReal = ({ activeMap, onClick }) => {
       const popup = new mapboxgl.Popup({ offset: [0, -15] })
         .setLngLat(lngLat)
         .setHTML(
-          `<h3>${activeData[activeMap].title} 
+          `<h2>${activeData[activeMap].title} 
           ${(() => {
-            switch (feature.properties.Gefuehl) {
+            switch (feature.properties.Annoation) {
               case undefined:
                 return ""
               default:
-                return feature.properties.Gefuehl
+                return feature.properties.Annoation
             }
           })()}
-          </h3 >
+          </h2 >
           
           <p>${textInput}</p>
 
@@ -132,7 +132,7 @@ const MapReal = ({ activeMap, onClick }) => {
         )
         .addTo(map)
 
-      // map.panTo(feature.geometry.coordinates, { duration: 5000 })
+      map.panTo(feature.geometry.coordinates, { duration: 2500 })
     })
 
     setMap(map)

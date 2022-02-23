@@ -4,7 +4,7 @@ import Button_1 from "../images/buttons/button_1.svg"
 import Button_2 from "../images/buttons/button_2.svg"
 import Button_3 from "../images/buttons/button_3.svg"
 import Button_4 from "../images/buttons/button_4.svg"
-import Button_info from "../images/buttons/button_info.svg"
+import Button_info from "../images/buttons/button_info_black.svg"
 // import { func, shape, bool } from "prop-types"
 
 const ButtonComponent = styled.div`
