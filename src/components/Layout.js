@@ -6,11 +6,15 @@ import Content from "./Content"
 // import { useStaticQuery, graphql } from "gatsby"
 // import Header from "./Header"
 import MapReal from "./MapReal"
-import MapDream from "./MapDream"
+import MapImpressionen from "./MapImpressionen"
 
 import ButtonSwitch from "./ButtonSwitch"
 
 import styled from "styled-components"
+import MapThema from "./MapThema"
+import MapVision from "./MapVision"
+import MapInfo from "./MapInfo"
+import MapQuality from "./MapQuality"
 
 const LayoutComponent = styled.div`
   /* color: #000000; */
@@ -38,7 +42,7 @@ const BarComponent = styled.div`
 const MapComponent = styled.div`
   flex: 2;
   display: flex;
-  background-color: #256077;
+  /* background-color: #256077; */
 `
 
 const MapRealComponent = styled.div`
@@ -80,14 +84,6 @@ const Layout = () => {
 
   const [activeLayerImp, setActiveLayerImp] = useState(0)
 
-  const maps = [
-    {
-      mapName: MapReal,
-    },
-    {
-      mapName: MapDream,
-    },
-  ]
   // const MapComp = maps[activeLayer].mapName
 
   // const data = useStaticQuery(graphql`
@@ -121,7 +117,21 @@ const Layout = () => {
 
       <MapComponent>
         <MapRealComponent isVisible={mapLayers.isMapRealActive ? 1 : 0}>
-          <MapReal activeMap={activeLayer} onClick={setActiveLayer} />
+          {activeLayer === 0 && (
+            <MapThema activeMap={activeLayer} onClick={setActiveLayer} />
+          )}
+          {activeLayer === 1 && (
+            <MapImpressionen activeMap={activeLayer} onClick={setActiveLayer} />
+          )}
+          {activeLayer === 2 && (
+            <MapQuality activeMap={activeLayer} onClick={setActiveLayer} />
+          )}
+          {activeLayer === 3 && (
+            <MapVision activeMap={activeLayer} onClick={setActiveLayer} />
+          )}
+          {activeLayer === 4 && (
+            <MapInfo activeMap={activeLayer} onClick={setActiveLayer} />
+          )}
         </MapRealComponent>
       </MapComponent>
     </LayoutComponent>
