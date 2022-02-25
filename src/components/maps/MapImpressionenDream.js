@@ -16,7 +16,7 @@ const activeData = [
     title: "title",
   },
   {
-    dataLayer: "impression_reality",
+    dataLayer: "impression_traum",
     title: "Gefühl: ",
   },
   {
@@ -33,7 +33,15 @@ const activeData = [
   },
 ]
 
-const MapQuality = ({ activeMap, onClick }) => {
+const getNewLocation = (currentLocation, mapCenter, mapZoom) => {
+  currentLocation[0] = mapCenter[0]
+  currentLocation[1] = mapCenter[1]
+  currentLocation[2] = mapZoom
+
+  return currentLocation
+}
+
+const MapImpressionen = ({ activeMap, currentLocation, setLocation }) => {
   const mapContainerRef = useRef(null)
 
   const [map, setMap] = useState(null)
@@ -44,8 +52,8 @@ const MapQuality = ({ activeMap, onClick }) => {
       accessToken: MAPBOX_TOKEN,
       style: "mapbox://styles/annaeschi/ckzxw4a57000615ntmvmxc271",
       // [lng, lat]
-      center: [13.38, 52.528],
-      zoom: 11,
+      center: [currentLocation[0], currentLocation[1]],
+      zoom: currentLocation[2],
       minZoom: 9,
       maxZoom: 18,
     })
@@ -70,6 +78,33 @@ const MapQuality = ({ activeMap, onClick }) => {
       )
     })
 
+    // map.on("data", () => {
+    //   // open random popup
+    //   const features = map.queryRenderedFeatures({
+    //     layers: [activeData[activeMap].dataLayer],
+    //   })
+
+    //   if (features.length) {
+    //     const feature = features[0]
+    //     const lngLat = feature.geometry.coordinates
+    //     const popup = new mapboxgl.Popup({ offset: [0, -15] })
+    //       .setLngLat(lngLat)
+    //       .setHTML(
+    //         `<h4>Gefühl: ${feature.properties.title}</h4 >
+    //       <p>${feature.properties.descriptio}</p>
+    //     `
+    //       )
+    //     popup.addTo(map)
+    //   }
+    // })
+
+    map.on("moveend", () => {
+      setLocation(
+        getNewLocation(currentLocation, map.getCenter(), map.getZoom())
+      )
+      console.log(currentLocation)
+    })
+
     map.on("click", event => {
       const features = map.queryRenderedFeatures(event.point, {
         layers: [activeData[activeMap].dataLayer],
@@ -82,13 +117,14 @@ const MapQuality = ({ activeMap, onClick }) => {
 
       console.log(features)
 
-      let lngLat
-      lngLat = feature.geometry.coordinates
+      let lngLat = feature.geometry.coordinates
 
       const popup = new mapboxgl.Popup({ offset: [0, -15] })
         .setLngLat(lngLat)
         .setHTML(
-          `<h2>${feature.properties.title}</h2 >
+          `<h4>Gefühl: ${feature.properties.title}</h4 >
+            <p>${feature.properties.descriptio}</p>
+
           `
         )
         .addTo(map)
@@ -104,4 +140,4 @@ const MapQuality = ({ activeMap, onClick }) => {
   return <div ref={mapContainerRef} style={mapContainerStyle} />
 }
 
-export default MapQuality
+export default MapImpressionen

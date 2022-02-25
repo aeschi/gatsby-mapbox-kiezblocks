@@ -26,22 +26,27 @@ html {
   line-break: normal;
 }
 
-h3{
-  font-family: 'IBMPlexSansCondensedReg';
-  font-size: 3.5rem;
-  padding: 0;
-  margin-top:0.25rem;
-  margin-bottom:0.25rem;
-  text-transform: uppercase;
-}
 
 h2{
   font-family: 'IBMPlexSansCondensedReg';
   font-size: 1.5rem;
 }
 
+h3{
+  font-family: 'IBMPlexSansCondensedReg';
+  font-size: 3rem;
+  padding: 0;
+  margin-top:0.25rem;
+  margin-bottom:0.25rem;
+  text-transform: uppercase;
+}
+
 h4{
   font-family: 'IBMPlexSansCondensedReg';
+  font-size: 1.25rem;
+  padding: 0;
+  margin-top: 1.25rem;
+  margin-bottom: 0.2rem;
 }
 
 p {

@@ -33,7 +33,16 @@ const activeData = [
   },
 ]
 
-const MapInfo = ({ activeMap, onClick }) => {
+const getNewLocation = (currentLocation, mapCenter, mapZoom) => {
+  currentLocation[0] = mapCenter[0]
+  currentLocation[1] = mapCenter[1]
+  currentLocation[2] = mapZoom
+
+  return currentLocation
+}
+
+
+const MapVision = ({ activeMap, currentLocation, setLocation }) => {
   const mapContainerRef = useRef(null)
 
   const [map, setMap] = useState(null)
@@ -44,8 +53,8 @@ const MapInfo = ({ activeMap, onClick }) => {
       accessToken: MAPBOX_TOKEN,
       style: "mapbox://styles/annaeschi/ckzxw4a57000615ntmvmxc271",
       // [lng, lat]
-      center: [13.38, 52.528],
-      zoom: 11,
+      center: [currentLocation[0], currentLocation[1]],
+      zoom: currentLocation[2],
       minZoom: 9,
       maxZoom: 18,
     })
@@ -70,9 +79,15 @@ const MapInfo = ({ activeMap, onClick }) => {
       )
     })
 
+    map.on("moveend", () => {
+      setLocation(
+        getNewLocation(currentLocation, map.getCenter(), map.getZoom())
+      )
+    })
+
     map.on("click", event => {
       const features = map.queryRenderedFeatures(event.point, {
-        layers: [activeData[activeMap].dataLayer],
+        layers: [activeData[activeMap].dataLayer] ,
       })
 
       if (!features.length) {
@@ -80,17 +95,16 @@ const MapInfo = ({ activeMap, onClick }) => {
       }
       const feature = features[0]
 
-      console.log(features)
-
-      let lngLat
-      lngLat = feature.geometry.coordinates
-
-      const popup = new mapboxgl.Popup({ offset: [0, -15] })
+      let lngLat = feature.geometry.coordinates[0][0]
+      const popup = new mapboxgl.Popup({ offset: [0, -10] })
         .setLngLat(lngLat)
         .setHTML(
-          `<h2>${feature.properties.title}</h2 >
+          `<h4>${feature.properties.name}</h4 >
+
+          <a href="${feature.properties._umap_options}" target="_blank" rel="noopener noreferrer">Website<a/>
           `
-        )
+      )
+        
         .addTo(map)
 
       // map.panTo(feature.geometry.coordinates, { duration: 2500 })
@@ -104,4 +118,4 @@ const MapInfo = ({ activeMap, onClick }) => {
   return <div ref={mapContainerRef} style={mapContainerStyle} />
 }
 
-export default MapInfo
+export default MapVision

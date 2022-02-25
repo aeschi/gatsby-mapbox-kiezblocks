@@ -2,19 +2,15 @@ import React from "react"
 import { useState } from "react"
 import PropTypes from "prop-types"
 import Buttons from "./Buttons"
-import Content from "./Content"
-// import { useStaticQuery, graphql } from "gatsby"
-// import Header from "./Header"
-import MapReal from "./MapReal"
-import MapImpressionen from "./MapImpressionen"
-
 import ButtonSwitch from "./ButtonSwitch"
-
+import Content from "./Content"
+import MapImpressionen from "./maps/MapImpressionen"
 import styled from "styled-components"
-import MapThema from "./MapThema"
-import MapVision from "./MapVision"
-import MapInfo from "./MapInfo"
-import MapQuality from "./MapQuality"
+import MapThema from "./maps/MapThema"
+import MapVision from "./maps/MapVision"
+import MapInfo from "./maps/MapInfo"
+import MapQuality from "./maps/MapQuality"
+import MapImpressionenDream from "./maps/MapImpressionenDream"
 
 const LayoutComponent = styled.div`
   /* color: #000000; */
@@ -84,30 +80,16 @@ const Layout = () => {
 
   const [activeLayerImp, setActiveLayerImp] = useState(0)
 
-  // const MapComp = maps[activeLayer].mapName
+  const initialLocation = [13.38, 52.528, 11.0]
 
-  // const data = useStaticQuery(graphql`
-  //   query SiteTitleQuery {
-  //     site {
-  //       siteMetadata {
-  //         title
-  //       }
-  //     }
-  //   }
-  // `)
+  const [currentLocation, setCurrentLocation] = useState(initialLocation)
 
   return (
     <LayoutComponent>
-      {/* <Header siteTitle={data.site.siteMetadata?.title || `Title`} /> */}
-
       <BarComponent>
         <h2>[T]räume deinen Kiez frei</h2>
         <Buttons active={activeLayer} onClick={setActiveLayer} />
-        <Content
-          activeContent={activeLayer}
-          activeState={activeLayerImp}
-          onClick={setActiveLayerImp}
-        />
+        <Content activeContent={activeLayer} activeState={activeLayerImp} />
         <ButtonSwitchComponent>
           {activeLayer === 1 && (
             <ButtonSwitch active={activeLayerImp} onClick={setActiveLayerImp} />
@@ -118,19 +100,47 @@ const Layout = () => {
       <MapComponent>
         <MapRealComponent isVisible={mapLayers.isMapRealActive ? 1 : 0}>
           {activeLayer === 0 && (
-            <MapThema activeMap={activeLayer} onClick={setActiveLayer} />
+            <MapThema
+              activeMap={activeLayer}
+              currentLocation={currentLocation}
+              setLocation={setCurrentLocation}
+            />
           )}
-          {activeLayer === 1 && (
-            <MapImpressionen activeMap={activeLayer} onClick={setActiveLayer} />
+          {activeLayer === 1 && activeLayer !== activeLayerImp && (
+            <MapImpressionen
+              activeMap={activeLayer}
+              currentLocation={currentLocation}
+              setLocation={setCurrentLocation}
+            />
           )}
+          {activeLayer === 1 && activeLayer === activeLayerImp && (
+            <MapImpressionenDream
+              activeMap={activeLayer}
+              currentLocation={currentLocation}
+              setLocation={setCurrentLocation}
+            />
+          )}
+
           {activeLayer === 2 && (
-            <MapQuality activeMap={activeLayer} onClick={setActiveLayer} />
+            <MapQuality
+              activeMap={activeLayer}
+              currentLocation={currentLocation}
+              setLocation={setCurrentLocation}
+            />
           )}
           {activeLayer === 3 && (
-            <MapVision activeMap={activeLayer} onClick={setActiveLayer} />
+            <MapVision
+              activeMap={activeLayer}
+              currentLocation={currentLocation}
+              setLocation={setCurrentLocation}
+            />
           )}
           {activeLayer === 4 && (
-            <MapInfo activeMap={activeLayer} onClick={setActiveLayer} />
+            <MapInfo
+              activeMap={activeLayer}
+              currentLocation={currentLocation}
+              setLocation={setCurrentLocation}
+            />
           )}
         </MapRealComponent>
       </MapComponent>

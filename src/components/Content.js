@@ -52,13 +52,13 @@ const textContent = [
   },
 ]
 
-const Content = ({ activeContent, activeState, onClick }) => {
+const Content = ({ activeContent, activeState}) => {
   return (
     <>
       <div>
         {activeContent === 0 && <Thema />}
         {activeContent === 1 && (
-          <Impressionen activeState={activeState} onClick={onClick} />
+          <Impressionen activeState={activeState} />
         )}
         {activeContent === 2 && <Quality />}
         {activeContent === 3 && <Vision />}
