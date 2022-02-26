@@ -87,7 +87,6 @@ const Layout = () => {
 
       <MapComponent>
         <MapRealComponent>
-          {console.log("currentLocation Layout: ", currentLocation)}
           <Maps
             activeLayer={activeLayer}
             activeLayerImp={activeLayerImp}
