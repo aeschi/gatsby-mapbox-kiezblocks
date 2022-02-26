@@ -1,6 +1,6 @@
 import React from "react"
 
-const Quality = () => {
+const Quality = ({ onClickText }) => {
   return (
     <>
       <div>
@@ -15,8 +15,12 @@ const Quality = () => {
           dieses Projekts wurde ein Workshop organisiert und zusätzlich
           Interviews zum öffentlichen Raum geführt. Die folgenden nicht
           repräsentativen Ergebnisse sollen einen kleinen Einblick in die
-          Gedanken zur Qualität des Raumes geben. (Mehr Informationen zum
-          Workshop. LINK)
+          Gedanken zur Qualität des Raumes geben.{" "}
+          {/* <a onClick={onClickText(4)}>(Mehr Informationen zum Workshop.)</a> */}
+          {/* <button onClick={onClickText(3)}> */}
+          (Mehr Informationen zum Workshop unter "zum Projekt")
+          {/* </button> */}
+          {/* <a onClick={onClick(4)}>(Mehr Informationen zum Workshop.)</a> */}
         </p>
         <p>
           In dem Workshop stellte sich heraus, dass frei zugängliche Orte der

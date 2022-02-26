@@ -12,9 +12,9 @@ const Dream = () => {
           Wie sieht der Spaziergang durch deinen Stadtteil aus, wenn du deine
           Haustüre aufmachst und alles, was du dort erlebst, kannst du selbst
           gestalten?
-          <br />- Dein eigener Kieztraum -
+          <br />— Dein eigener Kieztraum —
           <br />
-          Was siehst du, was hörst du, was riechst du? - Wen oder was triffst du
+          Was siehst du, was hörst du, was riechst du? – Wen oder was triffst du
           auf deinem Weg?
           <br />
           Und vor allem, was machen diese Erlebnisse mit dir?

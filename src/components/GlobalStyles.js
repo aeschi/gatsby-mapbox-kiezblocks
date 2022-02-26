@@ -1,24 +1,39 @@
 import { createGlobalStyle } from "styled-components"
-
 import IBMPlexSansReg from "../fonts/IBMPlexSans-Regular.woff"
 import IBMPlexSansReg2 from "../fonts/IBMPlexSans-Regular.woff2"
-
 import IBMPlexSansCondensedReg from "../fonts/IBMPlexSansCondensed-Regular.woff"
 import IBMPlexSansCondensedReg2 from "../fonts/IBMPlexSansCondensed-Regular.woff2"
+import IBMPlexSansLight from "../fonts/IBMPlexSans-Light.woff"
+import IBMPlexSansSemiBold from "../fonts/IBMPlexSans-SemiBold.woff"
+import IBMPlexSansBold from "../fonts/IBMPlexSans-Bold.woff"
 
 const GlobalStyle = createGlobalStyle`
 
 // FONT
 @font-face {
-  font-family: 'IBMPlexSansReg';
-  src: url(${IBMPlexSansReg2}) format('woff2'),
-       url(${IBMPlexSansReg}) format('woff');
-       
-       font-family: 'IBMPlexSansCondensedReg';
+  font-family: 'IBMPlexSansCondensedReg';
   src: url(${IBMPlexSansCondensedReg2}) format('woff2'),
        url(${IBMPlexSansCondensedReg}) format('woff');
 }
 
+@font-face {
+  font-family: 'IBMPlexSansReg';
+  src: url(${IBMPlexSansReg}) format('woff');
+}
+
+@font-face {
+  font-family: 'IBMPlexSansReg';
+  src: url(${IBMPlexSansSemiBold}) format('woff2'),
+       url(${IBMPlexSansSemiBold}) format('woff');
+       font-weight: bold;
+}
+/* 
+@font-face {
+  font-family: 'IBMPlexSansReg';
+  src: url(${IBMPlexSansLight}) format('woff2'),
+       url(${IBMPlexSansLight}) format('woff');
+       font-weight: lighter;
+} */
 
 html {
   font-size: 16px;
@@ -61,28 +76,28 @@ h5{
 }
 
 p {
+  font-family: 'IBMPlexSansReg';
   line-height: 1.6rem;
-
 }
 
 
 a:link{
-  color: black;
+  color: #515151;
   text-decoration: none;
   font-weight: 550;
 }
 
 a:visited{
-  color: #2b2b2b;
+  color: #515151;
 }
 
 a:hover{
- color: #2b2b2b;
+ color: #515151;
  text-decoration: underline;
 } 
 
 a:active{
-  color: #2b2b2b;
+  color: #515151;
 }
 
 // COLORS

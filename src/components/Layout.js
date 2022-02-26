@@ -4,13 +4,8 @@ import PropTypes from "prop-types"
 import Buttons from "./Buttons"
 import ButtonSwitch from "./ButtonSwitch"
 import Content from "./Content"
-import MapImpressionen from "./maps/MapImpressionen"
 import styled from "styled-components"
-import MapThema from "./maps/MapThema"
-import MapVision from "./maps/MapVision"
-import MapInfo from "./maps/MapInfo"
-import MapQuality from "./maps/MapQuality"
-import MapImpressionenDream from "./maps/MapImpressionenDream"
+import Maps from "./Maps"
 
 const LayoutComponent = styled.div`
   /* color: #000000; */
@@ -22,7 +17,7 @@ const LayoutComponent = styled.div`
 `
 
 const BarComponent = styled.div`
-  min-width: 550px;
+  min-width: 450px;
   flex: 1;
   padding: 0 1rem;
   display: flex;
@@ -38,25 +33,23 @@ const MapComponent = styled.div`
 `
 
 const MapRealComponent = styled.div`
+  width: 100%;
   /* position: absolute; */
   /* height: 100%; */
-  width: 100%;
-  /* width: 65.25%; */
   /* top: 0;
   right: 0;
   bottom: 0; */
-  visibility: ${({ isVisible }) => (isVisible ? "visible" : "hidden")};
 `
 
-const MapDreamComponent = styled.div`
-  position: absolute;
-  height: 100%;
-  width: 50%;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  visibility: ${({ isVisible }) => (isVisible ? "visible" : "hidden")};
-`
+// const MapDreamComponent = styled.div`
+//   position: absolute;
+//   height: 100%;
+//   width: 50%;
+//   top: 0;
+//   right: 0;
+//   bottom: 0;
+//   visibility: ${({ isVisible }) => (isVisible ? "visible" : "hidden")};
+// `
 
 const ButtonSwitchComponent = styled.div`
   /* flex: 2;
@@ -67,11 +60,6 @@ const ButtonSwitchComponent = styled.div`
 `
 
 const Layout = () => {
-  const [mapLayers, setMapLayers] = useState({
-    isMapRealActive: true,
-    isMapDreamActive: false,
-  })
-
   const [activeLayer, setActiveLayer] = useState(0)
 
   const [activeLayerImp, setActiveLayerImp] = useState(0)
@@ -85,7 +73,11 @@ const Layout = () => {
       <BarComponent>
         <h2>[T]räume deinen Kiez frei</h2>
         <Buttons active={activeLayer} onClick={setActiveLayer} />
-        <Content activeContent={activeLayer} activeState={activeLayerImp} />
+        <Content
+          activeContent={activeLayer}
+          activeState={activeLayerImp}
+          onClick={setActiveLayer}
+        />
         <ButtonSwitchComponent>
           {activeLayer === 1 && (
             <ButtonSwitch active={activeLayerImp} onClick={setActiveLayerImp} />
@@ -94,50 +86,14 @@ const Layout = () => {
       </BarComponent>
 
       <MapComponent>
-        <MapRealComponent isVisible={mapLayers.isMapRealActive ? 1 : 0}>
-          {activeLayer === 0 && (
-            <MapThema
-              activeMap={activeLayer}
-              currentLocation={currentLocation}
-              setLocation={setCurrentLocation}
-            />
-          )}
-          {activeLayer === 1 && activeLayer !== activeLayerImp && (
-            <MapImpressionen
-              activeMap={activeLayer}
-              currentLocation={currentLocation}
-              setLocation={setCurrentLocation}
-            />
-          )}
-          {activeLayer === 1 && activeLayer === activeLayerImp && (
-            <MapImpressionenDream
-              activeMap={activeLayer}
-              currentLocation={currentLocation}
-              setLocation={setCurrentLocation}
-            />
-          )}
-
-          {activeLayer === 2 && (
-            <MapQuality
-              activeMap={activeLayer}
-              currentLocation={currentLocation}
-              setLocation={setCurrentLocation}
-            />
-          )}
-          {activeLayer === 3 && (
-            <MapVision
-              activeMap={activeLayer}
-              currentLocation={currentLocation}
-              setLocation={setCurrentLocation}
-            />
-          )}
-          {activeLayer === 4 && (
-            <MapInfo
-              activeMap={activeLayer}
-              currentLocation={currentLocation}
-              setLocation={setCurrentLocation}
-            />
-          )}
+        <MapRealComponent>
+          {console.log("currentLocation Layout: ", currentLocation)}
+          <Maps
+            activeLayer={activeLayer}
+            activeLayerImp={activeLayerImp}
+            currentLocation={currentLocation}
+            setCurrentLocation={setCurrentLocation}
+          />
         </MapRealComponent>
       </MapComponent>
     </LayoutComponent>

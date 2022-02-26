@@ -12,7 +12,7 @@ const ButtonComponent = styled.div`
   display: flex;
   /* flex-direction: row; */
   /* align-items: left; */
-  justify-content: space-around;
+  justify-content: space-between;
   box-sizing: border-box;
   button {
     width: 16.6%;

@@ -33,18 +33,19 @@ const activeData = [
   },
 ]
 
-const getNewLocation = (currentLocation, mapCenter, mapZoom) => {
-  currentLocation[0] = mapCenter[0]
-  currentLocation[1] = mapCenter[1]
-  currentLocation[2] = mapZoom
-
-  return currentLocation
-}
-
 const MapThema = ({ activeMap, currentLocation, setLocation }) => {
   const mapContainerRef = useRef(null)
 
   const [map, setMap] = useState(null)
+
+  const getNewLocation = (mapCenter, mapZoom) => {
+    if (mapCenter !== undefined) {
+      currentLocation[0] = mapCenter.lng
+      currentLocation[1] = mapCenter.lat
+      currentLocation[2] = mapZoom
+    }
+    return currentLocation
+  }
 
   useEffect(() => {
     const map = new mapboxgl.Map({
@@ -79,26 +80,24 @@ const MapThema = ({ activeMap, currentLocation, setLocation }) => {
     })
 
     map.on("moveend", () => {
-      setLocation(
-        getNewLocation(currentLocation, map.getCenter(), map.getZoom())
-      )
+      setLocation(getNewLocation(map.getCenter(), map.getZoom()))
     })
 
     // load data as geojson instead?
 
     map.on("data", () => {
-      console.log("data loaded")
+      // console.log("data loaded")
       setTimeout(function () {
-        console.log("timer donw")
+        // console.log("timer donw")
         // open random popup
         const features = map.queryRenderedFeatures({
           layers: [activeData[activeMap].dataLayer],
         })
 
         if (features.length) {
-          console.log("features length")
+          // console.log("features length")
           const feature = features[0]
-          console.log(features)
+          // console.log(features)
 
           // const lngLat = feature.geometry.coordinates
           // const popup = new mapboxgl.Popup({ offset: [0, -15] })
@@ -115,7 +114,7 @@ const MapThema = ({ activeMap, currentLocation, setLocation }) => {
     setMap(map)
 
     return () => map.remove()
-  }, [activeMap])
+  }, [activeMap, currentLocation, setLocation])
 
   return <div ref={mapContainerRef} style={mapContainerStyle} />
 }

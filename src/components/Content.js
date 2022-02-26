@@ -6,7 +6,7 @@ import Vision from "./pages/Vision"
 import Info from "./pages/Info"
 
 
-const Content = ({ activeContent, activeState}) => {
+const Content = ({ activeContent, activeState, onClick}) => {
   return (
     <>
       <div>
@@ -14,7 +14,7 @@ const Content = ({ activeContent, activeState}) => {
         {activeContent === 1 && (
           <Impressionen activeState={activeState} />
         )}
-        {activeContent === 2 && <Quality />}
+        {activeContent === 2 && <Quality onClickText={onClick} />}
         {activeContent === 3 && <Vision />}
         {activeContent === 4 && <Info />}
       </div>

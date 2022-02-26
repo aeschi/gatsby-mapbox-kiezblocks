@@ -33,18 +33,20 @@ const activeData = [
   },
 ]
 
-const getNewLocation = (currentLocation, mapCenter, mapZoom) => {
-  currentLocation[0] = mapCenter[0]
-  currentLocation[1] = mapCenter[1]
-  currentLocation[2] = mapZoom
-
-  return currentLocation
-}
 
 const MapImpressionen = ({ activeMap, currentLocation, setLocation }) => {
   const mapContainerRef = useRef(null)
 
   const [map, setMap] = useState(null)
+
+  const getNewLocation = (mapCenter, mapZoom) => {
+    if (mapCenter !== undefined) {
+      currentLocation[0] = mapCenter.lng
+      currentLocation[1] = mapCenter.lat
+      currentLocation[2] = mapZoom
+    }
+    return currentLocation
+  }
 
   useEffect(() => {
     const map = new mapboxgl.Map({
@@ -100,9 +102,8 @@ const MapImpressionen = ({ activeMap, currentLocation, setLocation }) => {
 
     map.on("moveend", () => {
       setLocation(
-        getNewLocation(currentLocation, map.getCenter(), map.getZoom())
+        getNewLocation( map.getCenter(), map.getZoom())
       )
-      console.log(currentLocation)
     })
 
     map.on("click", event => {
@@ -135,7 +136,7 @@ const MapImpressionen = ({ activeMap, currentLocation, setLocation }) => {
     setMap(map)
 
     return () => map.remove()
-  }, [activeMap])
+  }, [activeMap, currentLocation, setLocation])
 
   return <div ref={mapContainerRef} style={mapContainerStyle} />
 }

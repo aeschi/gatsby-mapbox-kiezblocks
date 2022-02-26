@@ -19,7 +19,7 @@ const Vision = () => {
           rasen durch die Seitenstraßen, verschmutzen die Umwelt und blockieren
           Bürgersteige, sodass für die kleinen und großen Anwohner:innen,
           Radfahrer:innen und Fußgänger:innen in ihrem eigenen Kiez kaum noch
-          Platz ist. Ein #Kiezblock ist einfach ein Wohngebiet ohne
+          Platz ist. Ein Kiezblock ist einfach ein Wohngebiet ohne
           Durchgangsverkehr. Die Zufahrt mit dem Auto ist weiterhin möglich,
           aber der Durchgangsverkehr wird durch die Einführung von
           Einbahnstraßen und Barrieren reduziert. Das macht den Kiez sicherer,

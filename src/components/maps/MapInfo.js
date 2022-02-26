@@ -20,31 +20,36 @@ const activeData = [
     title: "Gefühl: ",
   },
   {
-    dataLayer: "quality",
-    title: "",
+    dataLayer: "impression_traum",
+    title: "Gefühl: ",
   },
+  // {
+  //   dataLayer: "quality",
+  //   title: "",
+  // },
   {
     dataLayer: "vision-kiezblocks",
     title: "",
   },
-  {
-    dataLayer: "info",
-    title: "",
-  },
+  // {
+  //   dataLayer: "info",
+  //   title: "",
+  // },
 ]
-
-const getNewLocation = (currentLocation, mapCenter, mapZoom) => {
-  currentLocation[0] = mapCenter[0]
-  currentLocation[1] = mapCenter[1]
-  currentLocation[2] = mapZoom
-
-  return currentLocation
-}
 
 const MapInfo = ({ activeMap, currentLocation, setLocation }) => {
   const mapContainerRef = useRef(null)
 
   const [map, setMap] = useState(null)
+
+  const getNewLocation = (mapCenter, mapZoom) => {
+    if (mapCenter !== undefined) {
+      currentLocation[0] = mapCenter.lng
+      currentLocation[1] = mapCenter.lat
+      currentLocation[2] = mapZoom
+    }
+    return currentLocation
+  }
 
   useEffect(() => {
     const map = new mapboxgl.Map({
@@ -66,21 +71,25 @@ const MapInfo = ({ activeMap, currentLocation, setLocation }) => {
     )
 
     map.on("load", () => {
-      map.setLayoutProperty(
-        activeData[activeMap].dataLayer,
-        "visibility",
-        "visible"
-      )
-      map.setLayoutProperty(
-        activeData[activeMap].dataLayer + "_glow",
-        "visibility",
-        "visible"
-      )
+
+      activeData.map((item) => {
+        map.setLayoutProperty(
+          item.dataLayer,
+          "visibility",
+          "visible"
+        )
+        map.setLayoutProperty(
+          item.dataLayer + "_glow",
+          "visibility",
+          "visible"
+        )
+
+      })
     })
 
     map.on("moveend", () => {
       setLocation(
-        getNewLocation(currentLocation, map.getCenter(), map.getZoom())
+        getNewLocation(map.getCenter(), map.getZoom())
       )
     })
 
@@ -112,7 +121,7 @@ const MapInfo = ({ activeMap, currentLocation, setLocation }) => {
     setMap(map)
 
     return () => map.remove()
-  }, [activeMap])
+  }, [activeMap, currentLocation, setLocation])
 
   return <div ref={mapContainerRef} style={mapContainerStyle} />
 }

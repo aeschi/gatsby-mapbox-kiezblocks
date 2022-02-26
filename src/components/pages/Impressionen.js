@@ -1,8 +1,7 @@
 import React from "react"
 import Dream from "./Dream"
 import Reality from "./Reality"
-import ButtonSwitch from "../ButtonSwitch"
-
+// import ButtonSwitch from "../ButtonSwitch"
 
 const Impressionen = ({activeState }) => {
   return (

@@ -9,10 +9,10 @@ const Info = () => {
   return (
     <>
       <div>
-        <h3>Info</h3>
+        <h3>Zum Projekt</h3>
         <p>
-          Die Daten für die Website basieren auf dem Onlineworkshop [T]räume
-          deinen Kiez frei vom 08.12.21 sowie auf Interviews. Der Workshop stand
+          Die Daten für die Website basieren auf dem Onlineworkshop <i>[T]räume
+          deinen Kiez frei</i> sowie auf Interviews. Der Workshop stand
           allen Berliner:innen offen und fand am 08.12.21 statt. Es nahmen 17
           Berliner:innen daran teil. Im Rahmen des Workshops konnten die
           Teilnehmenden ihre subjektive Perspektive auf ihre unmittelbare
@@ -47,7 +47,7 @@ const Info = () => {
             Changing Cities e.V.
           </a>{" "}
           durchgeführt. Rund die Hälfte der Workshop-Teilnehmenden sowie alle
-          drei Interviewten sind Teil des Changing City Netzwerkes oder sind
+          drei Interviewten sind Teil des Changing Cities Netzwerkes oder sind
           damit assoziiert. Es wurden Anstrengungen unternommen, dass auch
           Teilnehmende außerhalb dieses Netzwerkes am Workshop teilnehmen und es
           ein ausgewogenes Geschlechter- und Altersverhältnis besteht.
@@ -66,8 +66,8 @@ const Info = () => {
           Wintersemester 2021/22.
           <br />
           <br />
-          Entwickelt und durchgeführt wurde das Projekt [T]räume deinen Kiez
-          frei von Anna Eschenbacher (Schwerpunkt: Web Development & Design),
+          Entwickelt und durchgeführt wurde das Projekt <i>[T]räume deinen Kiez
+          frei</i> von Anna Eschenbacher (Schwerpunkt: Web Development & Design),
           Kalen Harris (Workshopdesign & Strategy), Leonie Schatter (Design &
           Usability), Oskar Schmieg (Kartographie, Raumsoziologie &
           Visualisierung) und Jonas Harant (Workshopdesign & Kommunikation).

@@ -7,8 +7,8 @@ const Reality = () => {
         <p>Jeder Mensch erlebt seine unmittelbare Lebenswelt individuell.</p>
         <p>
           Wie sieht Deine Lebensrealität aus, wenn du deine Haustüre auf machst
-          und z.B. zur Bäckerei in deinem Stadtteil gehst? Was siehst du, was
-          hörst du, was riechst du? - Wen oder was triffst du auf dem Weg
+          und zum Beispiel zur Bäckerei in deinem Stadtteil gehst? Was siehst du, was
+          hörst du, was riechst du? — Wen oder was triffst du auf dem Weg
           dorthin? <br />
           Und vor allem, was machen diese Erlebnisse mit dir?
         </p>

@@ -138,7 +138,7 @@ const MapReal = ({ activeMap, onClick }) => {
     setMap(map)
 
     return () => map.remove()
-  }, [activeMap])
+  }, [activeMap, currentLocation, setLocation])
 
   return <div ref={mapContainerRef} style={mapContainerStyle} />
 }
