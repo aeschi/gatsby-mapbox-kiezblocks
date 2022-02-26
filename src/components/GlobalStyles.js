@@ -26,6 +26,9 @@ html {
   line-break: normal;
 }
 
+h1 {
+    text-transform: uppercase;
+  }
 
 h2{
   font-family: 'IBMPlexSansCondensedReg';
@@ -49,8 +52,17 @@ h4{
   margin-bottom: 0.2rem;
 }
 
+h5{
+  font-family: 'IBMPlexSansCondensedReg';
+  font-size: 1.45rem;
+  padding: 0;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
 p {
   line-height: 1.6rem;
+
 }
 
 

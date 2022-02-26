@@ -84,27 +84,32 @@ const MapThema = ({ activeMap, currentLocation, setLocation }) => {
       )
     })
 
-    map.on("click", event => {
-      const features = map.queryRenderedFeatures(event.point, {
-        layers: [activeData[activeMap].dataLayer],
-      })
+    // load data as geojson instead?
 
-      if (!features.length) {
-        return
-      }
-      const feature = features[0]
+    map.on("data", () => {
+      console.log("data loaded")
+      setTimeout(function () {
+        console.log("timer donw")
+        // open random popup
+        const features = map.queryRenderedFeatures({
+          layers: [activeData[activeMap].dataLayer],
+        })
 
-      // const lngLat = feature.geometry.coordinates
+        if (features.length) {
+          console.log("features length")
+          const feature = features[0]
+          console.log(features)
 
-      // const popup = new mapboxgl.Popup({ offset: [0, -15] })
-      //   .setLngLat(lngLat)
-      //   .setHTML(
-      //     `<h4>${feature.properties.title}</h4 >
-      //     `
-      //   )
-      //   .addTo(map)
-
-      map.panTo(feature.geometry.coordinates, { duration: 2500 })
+          // const lngLat = feature.geometry.coordinates
+          // const popup = new mapboxgl.Popup({ offset: [0, -15] })
+          //   .setLngLat(lngLat)
+          //   .setHTML(
+          //     `<h4>${feature.properties.title}</h4 >
+          // `
+          //   )
+          // popup.addTo(map)
+        }
+      }, 1000)
     })
 
     setMap(map)

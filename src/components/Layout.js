@@ -29,10 +29,6 @@ const BarComponent = styled.div`
   flex-direction: column;
 
   overflow-y: scroll;
-
-  h1 {
-    text-transform: uppercase;
-  }
 `
 
 const MapComponent = styled.div`

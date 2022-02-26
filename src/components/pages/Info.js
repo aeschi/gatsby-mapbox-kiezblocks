@@ -1,10 +1,9 @@
 import React from "react"
-import styled from "styled-components"
+// import styled from "styled-components"
 
-const Footnote = styled.div`
-  color: #2b2b2b;
-  font-size: 0.8rem;
-`
+// const Footnote = styled.div`
+//   color: #9b9b9b;
+// `
 
 const Info = () => {
   return (
@@ -21,7 +20,13 @@ const Info = () => {
           sowie für ihre Träume und Visionen. Die Datengenerierung geschah durch
           individuelle Eintragungen der Teilnehmenden auf einer Onlinekarte
           sowie im Rahmen von Notizen bei Gruppendiskussionen.{" "}
-          <a href="https://github.com/aeschi/gatsby-mapbox-kiezblocks/tree/main/src/data" target="_blank" rel="noopener noreferrer">
+        </p>{" "}
+        <p>
+          <a
+            href="https://github.com/aeschi/gatsby-mapbox-kiezblocks/tree/main/src/data"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Hier ist der Link
           </a>{" "}
           zu den gesammelten Daten im CSV-File Format. Die Interviews wurden mit
@@ -31,9 +36,16 @@ const Info = () => {
           der öffentlichen Raums in Berlin gibt.
         </p>
         <h5>ÜBER DAS PROJEKT</h5>
-        <Footnote>
+        {/* <Footnote> */}
+        <p>
           Das Projekt wurde in Kooperation mit {""}
-          <a href="https://changing-cities.org/" target="_blank" rel="noopener noreferrer">Changing Cities e.V.</a>{" "}
+          <a
+            href="https://changing-cities.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Changing Cities e.V.
+          </a>{" "}
           durchgeführt. Rund die Hälfte der Workshop-Teilnehmenden sowie alle
           drei Interviewten sind Teil des Changing City Netzwerkes oder sind
           damit assoziiert. Es wurden Anstrengungen unternommen, dass auch
@@ -43,7 +55,11 @@ const Info = () => {
           <br />
           Das Projekt wurde am 31.03.2022 auf dieser Website veröffentlicht und
           entstand im Rahmen {""}
-          <a href="https://uclab.fh-potsdam.de/mapping/" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://uclab.fh-potsdam.de/mapping/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Mapping Cities - Making Cities Seminar
           </a>{" "}
           bei Prof. Dr. Marian Dörk an der Fachhochschule Potsdam im
@@ -58,8 +74,8 @@ const Info = () => {
           <br />
           <br />
           Vielen Dank an alle Beteiligten!
-        </Footnote>
-        <p></p>
+        </p>
+        {/* </Footnote> */}
       </div>
     </>
   )
