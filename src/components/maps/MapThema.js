@@ -86,8 +86,9 @@ const MapThema = ({ activeMap, currentLocation, setLocation }) => {
     // load data as geojson instead?
 
     map.on("data", () => {
+      let count = 0
       // console.log("data loaded")
-      setTimeout(function () {
+      const id = setInterval(function () {
         // console.log("timer donw")
         // open random popup
         const features = map.queryRenderedFeatures({
@@ -96,19 +97,45 @@ const MapThema = ({ activeMap, currentLocation, setLocation }) => {
 
         if (features.length) {
           // console.log("features length")
-          const feature = features[0]
+          const feature = features[count]
           // console.log(features)
 
-          // const lngLat = feature.geometry.coordinates
-          // const popup = new mapboxgl.Popup({ offset: [0, -15] })
-          //   .setLngLat(lngLat)
-          //   .setHTML(
-          //     `<h4>${feature.properties.title}</h4 >
-          // `
-          //   )
-          // popup.addTo(map)
+          const lngLat = feature.geometry.coordinates
+          const popup = new mapboxgl.Popup({ offset: [0, -15] })
+            .setLngLat(lngLat)
+            .setHTML(
+              `<p>${feature.properties.title}</p >
+          `
+            )
+          popup.addTo(map)
+
+          // map.panTo(feature.geometry.coordinates, { duration: 1000 })
         }
-      }, 1000)
+        if (count < features.length - 1) {
+          count++
+        } else {
+          clearInterval(id)
+          console.log("cleared")
+        }
+      }, 750)
+    })
+
+    map.on("click", event => {
+      const features = map.queryRenderedFeatures(event.point, {
+        layers: [activeData[activeMap].dataLayer],
+      })
+
+      if (!features.length) {
+        return
+      }
+      const feature = features[0]
+
+      let lngLat = feature.geometry.coordinates
+
+      const popup = new mapboxgl.Popup({ offset: [0, -15] })
+        .setLngLat(lngLat)
+        .setHTML(`<h4>${feature.properties.title}</h4 >`)
+        .addTo(map)
     })
 
     setMap(map)

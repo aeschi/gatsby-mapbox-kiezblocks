@@ -6,6 +6,7 @@ import ButtonSwitch from "./ButtonSwitch"
 import Content from "./Content"
 import styled from "styled-components"
 import Maps from "./Maps"
+import OnboardingSteps from "./OnboardingSteps"
 
 const LayoutComponent = styled.div`
   /* color: #000000; */
@@ -59,17 +60,27 @@ const ButtonSwitchComponent = styled.div`
   left: 10px; */
 `
 
+const OnboardingStepsComponent = styled.div`
+  position: absolute;
+  bottom: 1rem;
+  right: 11.5rem;
+  z-index: 1;
+`
+
 const Layout = () => {
   const [activeLayer, setActiveLayer] = useState(0)
 
   const [activeLayerImp, setActiveLayerImp] = useState(0)
 
-  const initialLocation = [13.38, 52.528, 11.0]
+  const initialLocation = [13.38, 52.528, 11]
 
   const [currentLocation, setCurrentLocation] = useState(initialLocation)
 
   return (
     <LayoutComponent>
+      <OnboardingStepsComponent>
+        <OnboardingSteps />
+      </OnboardingStepsComponent>
       <BarComponent>
         <h2>[T]räume deinen Kiez frei</h2>
         <Buttons active={activeLayer} onClick={setActiveLayer} />

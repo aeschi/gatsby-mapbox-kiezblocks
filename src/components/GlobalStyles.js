@@ -63,7 +63,7 @@ h4{
   font-family: 'IBMPlexSansCondensedReg';
   font-size: 1.25rem;
   padding: 0;
-  margin-top: 1.25rem;
+  margin-top: 0.5rem;
   margin-bottom: 0.2rem;
 }
 

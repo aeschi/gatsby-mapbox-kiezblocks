@@ -6,6 +6,12 @@ const Vision = () => {
       <div>
         <h3>Vision</h3>
         <p>
+          <b>
+            Hier können Sie erfahren, warum und wie Berliner:innen kooperieren,
+            um ihre Kieze zu einladenden, menschenfreundlichen Orten zu machen.
+          </b>
+        </p>
+        <p>
           Die Teilnehmer unseres Projekts berichteten, dass sie sich in der
           Stadt gestresst und überfordert fühlen, vor allem in Gegenden mit viel
           Verkehr. Alle Projektteilnehmer:innen träumen davon, in einem Kiez zu

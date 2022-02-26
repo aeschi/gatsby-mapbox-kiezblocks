@@ -79,6 +79,7 @@ const MapQuality = ({ activeMap, currentLocation, setLocation }) => {
         "visibility",
         "visible"
       )
+      map.panTo([13.410,52.520], { duration: 3000 })
     })
 
     map.on("moveend", () => {
@@ -109,7 +110,7 @@ const MapQuality = ({ activeMap, currentLocation, setLocation }) => {
         )
         .addTo(map)
 
-      // map.panTo(feature.geometry.coordinates, { duration: 2500 })
+     
     })
 
     setMap(map)

@@ -6,6 +6,13 @@ const Thema = () => {
       <div>
         <h3>Thema</h3>
         <p>
+          <b>
+            Was ist der erste Eindruck, wenn Du das Haus verlässt? Es geht um
+            öffentlichen Raum, besonders um die Art wie wir ihn wahrnehmen, was
+            uns dort passiert und was wir über ihn träumen.
+          </b>
+        </p>
+        <p>
           Stell dir vor, es ist ein ganz normaler Tag. Du willst aus dem Haus.
           Ein Blick aus dem Fenster verrät dir, welche Witterung draußen
           herrscht. Du ziehst die Jacke und deine Schuhe an, steckst Schlüssel
@@ -29,8 +36,8 @@ const Thema = () => {
           zwischen dem Automobil und anderen Verkehrsmitteln. Beinah jeder
           Aspekt unseres städtischen Lebens hat irgendwie mit diesem Raum zu
           tun. <br />
-          Während wir gesamtgesellschaftlich einen sehr hohen Wert darauf
-          legen, angemessene Mengen an Daten, Fakten, Argumenten und Theorien zu
+          Während wir gesamtgesellschaftlich einen sehr hohen Wert darauf legen,
+          angemessene Mengen an Daten, Fakten, Argumenten und Theorien zu
           sammeln, um für diese Diskurse gewappnet zu sein, scheint der
           öffentliche Raum in seiner sinnlichen Erlebbarkeit und als Ort zu dem
           jede:r eine völlig eigene Beziehung aufbaut, immer unwichtiger zu

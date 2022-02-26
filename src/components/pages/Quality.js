@@ -6,6 +6,13 @@ const Quality = ({ onClickText }) => {
       <div>
         <h3>Qualität</h3>
         <p>
+          <b>
+            Diskussionen in einem Workshop und Interviews geben Hinweise auf die
+            Bedürfnisse und Anforderungen der Teilnehmer:innen an den
+            öffentlichen Raum in Berlin.
+          </b>
+        </p>
+        <p>
           Öffentlicher Raum wird oft von Architekten oder Stadtplanungsbüros
           gestaltet. Im besten Fall empfinden die Bewohner:innen den Ort als
           angenehm und alle ihre Bedürfnisse sind gedeckt. Wenn dies nicht der

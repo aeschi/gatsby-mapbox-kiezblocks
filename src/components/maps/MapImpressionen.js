@@ -77,6 +77,26 @@ const MapImpressionenDream = ({ activeMap, currentLocation, setLocation }) => {
         "visibility",
         "visible"
       )
+
+
+      const features = map.queryRenderedFeatures({
+        layers: [activeData[activeMap].dataLayer],
+      })
+
+      if (features.length) {
+        const feature = features[0]
+        const lngLat = feature.geometry.coordinates
+        const popup = new mapboxgl.Popup({ offset: [0, -15] })
+          .setLngLat(lngLat)
+          .setHTML(
+            `<h4>Gefühl: ${feature.properties.title}</h4 >
+          <p>${feature.properties.descriptio}</p>
+        `
+          )
+        popup.addTo(map)
+      }
+
+      map.easeTo({center:  [13.460, 52.514], zoom: 14 , duration: 4000});
     })
 
     // map.on("data", () => {
@@ -129,7 +149,6 @@ const MapImpressionenDream = ({ activeMap, currentLocation, setLocation }) => {
         )
         .addTo(map)
 
-      // map.panTo(feature.geometry.coordinates, { duration: 2500 })
     })
 
     setMap(map)
