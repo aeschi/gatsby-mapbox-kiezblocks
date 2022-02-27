@@ -35,19 +35,6 @@ const OnboardingSteps = () => {
         disableBeacon: true,
       },
       {
-        target: ".Content",
-        placement: "right",
-        content: (
-          <div>
-            <p>
-              Der Text zu jedem Kapitel gibt dir eine genauere Beschreibung zu
-              den Daten auf der Karte.
-            </p>
-          </div>
-        ),
-        disableBeacon: true,
-      },
-      {
         target: ".Map",
         // placement: "center",
         content: (
