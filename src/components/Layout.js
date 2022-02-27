@@ -16,6 +16,17 @@ const LayoutComponent = styled.div`
   box-sizing: border-box;
 `
 
+const ButtonComponent = styled.div.attrs({
+  className: "Buttons",
+})`
+  padding: 0;
+  margin: 0;
+`
+
+const ContentComponent = styled.div.attrs({
+  className: "Content",
+})``
+
 const BarComponent = styled.div`
   min-width: 450px;
   flex: 1;
@@ -26,7 +37,9 @@ const BarComponent = styled.div`
   overflow-y: scroll;
 `
 
-const MapComponent = styled.div`
+const MapComponent = styled.div.attrs({
+  className: "Map",
+})`
   flex: 2;
   display: flex;
   /* background-color: #256077; */
@@ -63,37 +76,50 @@ const Layout = () => {
 
   const [activeLayerImp, setActiveLayerImp] = useState(0)
 
+  const [activePlace, setActivePlace] = useState(0)
+
   const initialLocation = [13.38, 52.528, 11]
 
   const [currentLocation, setCurrentLocation] = useState(initialLocation)
 
   return (
-    <LayoutComponent>
+    <>
       <OnboardingStepsComponent>
         <OnboardingSteps />
       </OnboardingStepsComponent>
-      <BarComponent>
-        <h2>[T]räume deinen Kiez frei</h2>
-        <Buttons active={activeLayer} onClick={setActiveLayer} />
-        <Content
-          activeContent={activeLayer}
-          activeState={activeLayerImp}
-          setActiveLayer={setActiveLayer}
-          onClick={setActiveLayerImp}
-        />
-      </BarComponent>
+      <LayoutComponent>
+        <BarComponent>
+          <h2>[T]räume deinen Kiez frei</h2>
+          <ButtonComponent>
+            <Buttons active={activeLayer} onClick={setActiveLayer} />
+          </ButtonComponent>
 
-      <MapComponent>
-        <MapRealComponent>
-          <Maps
-            activeLayer={activeLayer}
-            activeLayerImp={activeLayerImp}
-            currentLocation={currentLocation}
-            setCurrentLocation={setCurrentLocation}
-          />
-        </MapRealComponent>
-      </MapComponent>
-    </LayoutComponent>
+          <ContentComponent>
+            <Content
+              className="Content"
+              activeContent={activeLayer}
+              activeState={activeLayerImp}
+              setActiveLayer={setActiveLayer}
+              onClick={setActiveLayerImp}
+              activePlace={activePlace}
+              setActivePlace={setActivePlace}
+            />
+          </ContentComponent>
+        </BarComponent>
+
+        <MapComponent>
+          <MapRealComponent>
+            <Maps
+              activeLayer={activeLayer}
+              activeLayerImp={activeLayerImp}
+              currentLocation={currentLocation}
+              setCurrentLocation={setCurrentLocation}
+              activePlace={activePlace}
+            />
+          </MapRealComponent>
+        </MapComponent>
+      </LayoutComponent>
+    </>
   )
 }
 

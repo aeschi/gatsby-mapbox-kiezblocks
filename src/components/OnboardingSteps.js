@@ -7,48 +7,79 @@ const OnboardingSteps = () => {
     run: false,
     steps: [
       {
-        title: "1/6",
         target: "body",
         placement: "center",
         content: (
           <div>
-            <h4>Willkommen zur Tour von [T]räume deinen Kiez frei</h4>
+            <h4>
+              Willkommen bei <br />
+              [T]räume deinen Kiez frei
+            </h4>
             <p>
-              Was ist der erste Eindruck, wenn Du das Haus verlässt? Es geht um
-              öffentlichen Raum, besonders um die Art wie wir ihn wahrnehmen,
-              was uns dort passiert und was wir über ihn träumen.
+              Hier setzen wir uns damit ausseinander, wie wir den öffentlichen
+              Raum wahrnehmen, was uns dort passiert und was wir über ihn
+              träumen.
             </p>
           </div>
         ),
         disableBeacon: true,
       },
       {
-        title: "Joyride Is A Great Way To Point At Things",
-        target: "body",
-        placement: "center",
+        target: ".Buttons",
+        placement: "right",
         content: (
           <div>
-            <h4>Impressionen</h4>
+            <p>Hier kannst du dich durch die verschiedenen Kapitel klicken.</p>
+          </div>
+        ),
+        disableBeacon: true,
+      },
+      {
+        target: ".Content",
+        placement: "right",
+        content: (
+          <div>
             <p>
-              Entdecke auf der Karte von Berlin die subjektiven Lebensrealitäten
-              sowie Träume von Bewohner:innen in Bezug auf ihre unmittelbare
-              Wohnumgebung.
+              Der Text zu jedem Kapitel gibt dir eine genauere Beschreibung zu
+              den Daten auf der Karte.
             </p>
           </div>
         ),
         disableBeacon: true,
       },
       {
-        title: "Finally ...",
-        target: "body",
-        placement: "center",
-        content: "Take action!",
+        target: ".Map",
+        // placement: "center",
+        content: (
+          <div>
+            <p>
+              Auf unserer Karte siehst du interaktive Datenpunkte. Du kannst
+              dich auf der Karte bewegen und Gefühle, Gedanken und Kommentare zu
+              den Orten entdecken.
+            </p>
+          </div>
+        ),
+        disableBeacon: true,
+      },
+      {
+        target: ".button_tour",
+        // placement: "center",
+        content: (
+          <div>
+            <p>
+              Falls du nochmal durch die Funktionen geführt werden möchtest,
+              kannst du hier klicken.
+              <br />
+              <h4> Viel Spaß!</h4>
+            </p>
+          </div>
+        ),
       },
     ],
   })
 
   return (
-    <React.Fragment>
+    <>
       <div style={{ marginLeft: "10%", marginRight: "auto" }}>
         <button
           onClick={() => {
@@ -62,7 +93,7 @@ const OnboardingSteps = () => {
             cursor: "pointer",
           }}
         >
-          <img src={Button_tour} />
+          <img src={Button_tour} alt="button_tour" className="button_tour" />
         </button>
       </div>
       <ReactJoyride
@@ -73,17 +104,18 @@ const OnboardingSteps = () => {
         showSkipButton
         styles={{
           options: {
-            arrowColor: "#1f9b42",
+            arrowColor: "#ffffff",
             backgroundColor: "#ffffff",
-            overlayColor: "#5252526a",
+            // overlayColor: "#5252526a",
             primaryColor: "#E95048",
             textColor: "#000000",
-            // width: 900,
             zIndex: 1000,
+            padding: 0,
+            textAlign: "left",
           },
         }}
       />
-    </React.Fragment>
+    </>
   )
 }
 

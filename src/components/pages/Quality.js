@@ -1,10 +1,13 @@
 import React from "react"
+import ButtonSwitchPlace from "../ButtonSwitchPlace"
 
-const Quality = ({ onClickText }) => {
+const Quality = ({ onClickText, activePlace, setActivePlace }) => {
   return (
     <>
       <div>
         <h3>Qualität</h3>
+
+        <ButtonSwitchPlace activeState={activePlace} onClick={setActivePlace} />
         <p>
           <b>
             Diskussionen in einem Workshop und Interviews geben Hinweise auf die

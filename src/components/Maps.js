@@ -17,6 +17,56 @@ const MapsComponent = styled.div`
     padding: 0;
     margin-bottom: 0.2rem;
   }
+
+  section {
+    line-height: 1.2rem;
+    padding: 0;
+    margin-bottom: 0.2rem;
+
+    font-size: 12px;
+  }
+`
+
+const MapThemaComponent = styled.div`
+  /* .mapboxgl-popup-close-button {
+    display: none;
+  } */
+
+  .mapboxgl-popup-content {
+    /* font: 400 15px/22px "Source Sans Pro", "Helvetica Neue", sans-serif; */
+    /* padding: 0; */
+    /* width: 180px; */
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.008);
+  }
+
+  .mapboxgl-popup-content h3 {
+    /* background: #91c949;
+    color: #fff;
+    margin: 0;
+    padding: 10px;
+    border-radius: 3px 3px 0 0;
+    font-weight: 700;
+    margin-top: -15px; */
+  }
+
+  .mapboxgl-popup-content h4 {
+    /* margin: 0;
+    padding: 10px;
+    font-weight: 400; */
+    /* background: #91c949; */
+  }
+
+  .mapboxgl-popup-content div {
+    /* padding: 10px; */
+  }
+
+  .mapboxgl-popup-anchor-top > .mapboxgl-popup-content {
+    /* margin-top: 15px; */
+  }
+
+  .mapboxgl-popup-anchor-top > .mapboxgl-popup-tip {
+    border-bottom-color: #91c949;
+  }
 `
 
 /* <Component isVisible={mapLayers.isMapRealActive ? 1 : 0} /> */
@@ -27,15 +77,18 @@ const Maps = ({
   activeLayerImp,
   currentLocation,
   setCurrentLocation,
+  activePlace
 }) => {
   return (
     <MapsComponent>
       {activeLayer === 0 && (
-        <MapThema
-          activeMap={activeLayer}
-          currentLocation={currentLocation}
-          setLocation={setCurrentLocation}
-        />
+        <MapThemaComponent>
+          <MapThema
+            activeMap={activeLayer}
+            currentLocation={currentLocation}
+            setLocation={setCurrentLocation}
+          />
+        </MapThemaComponent>
       )}
       {activeLayer === 1 && activeLayer !== activeLayerImp && (
         <MapImpressionen
@@ -57,6 +110,7 @@ const Maps = ({
           activeMap={activeLayer}
           currentLocation={currentLocation}
           setLocation={setCurrentLocation}
+          activePlace={activePlace}
         />
       )}
       {activeLayer === 3 && (

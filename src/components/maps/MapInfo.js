@@ -20,21 +20,17 @@ const activeData = [
     title: "Gefühl: ",
   },
   {
-    dataLayer: "impression_traum",
-    title: "Gefühl: ",
+    dataLayer: "quality",
+    title: "",
   },
-  // {
-  //   dataLayer: "quality",
-  //   title: "",
-  // },
   {
     dataLayer: "vision-kiezblocks",
     title: "",
   },
-  // {
-  //   dataLayer: "info",
-  //   title: "",
-  // },
+  {
+    dataLayer: "info",
+    title: "",
+  },
 ]
 
 const MapInfo = ({ activeMap, currentLocation, setLocation }) => {
@@ -85,6 +81,7 @@ const MapInfo = ({ activeMap, currentLocation, setLocation }) => {
         )
 
       })
+      map.easeTo({center: [13.332,52.513], zoom: 9.5, duration: 3000});
     })
 
     map.on("moveend", () => {
@@ -93,8 +90,33 @@ const MapInfo = ({ activeMap, currentLocation, setLocation }) => {
       )
     })
 
-    map.on("click", event => {
-      const features = map.queryRenderedFeatures(event.point, {
+    // map.on("click", event => {
+    //   const features = map.queryRenderedFeatures(event.point, {
+    //     layers: [activeData[activeMap].dataLayer],
+    //   })
+
+    //   if (!features.length) {
+    //     return
+    //   }
+    //   const feature = features[0]
+
+    //   console.log(features)
+
+    //   let lngLat = feature.geometry.coordinates
+
+    //   const popup = new mapboxgl.Popup({ offset: [0, -15] })
+    //     .setLngLat(lngLat)
+    //     .setHTML(
+    //       `<h4>${feature.properties.Annotaion}</h4 >
+    //       <a href="https://uclab.fh-potsdam.de/mapping/" target="_blank" rel="noopener noreferrer"><section>Mapping Cities - Making Cities Seminar</section></a>
+    //       `
+    //     )
+    //     .addTo(map)
+
+    // })
+
+    map.on("mouseover", () => {
+      const features = map.queryRenderedFeatures( {
         layers: [activeData[activeMap].dataLayer],
       })
 
@@ -110,12 +132,13 @@ const MapInfo = ({ activeMap, currentLocation, setLocation }) => {
       const popup = new mapboxgl.Popup({ offset: [0, -15] })
         .setLngLat(lngLat)
         .setHTML(
-          `<h4>${feature.properties.title}</h4 >
+          `<h4>${feature.properties.Annotaion}<h4>
+          <a href="https://uclab.fh-potsdam.de/mapping/" target="_blank" rel="noopener noreferrer"><section>Mapping Cities - Making Cities Seminar</section></a>
+          
           `
         )
         .addTo(map)
 
-      // map.panTo(feature.geometry.coordinates, { duration: 2500 })
     })
 
     setMap(map)

@@ -102,7 +102,7 @@ const MapVision = ({ activeMap, currentLocation, setLocation }) => {
         .setHTML(
           `<h4>${feature.properties.name}</h4 >
 
-          <a href="${feature.properties._umap_options}" target="_blank" rel="noopener noreferrer">Link zur Website<a/>
+          <a href="${feature.properties._umap_options}" target="_blank" rel="noopener noreferrer">Link zur Website</a>
           `
       )
         
