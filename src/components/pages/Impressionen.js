@@ -1,9 +1,18 @@
 import React from "react"
 import Dream from "./Dream"
 import Reality from "./Reality"
-// import ButtonSwitch from "../ButtonSwitch"
+import ButtonSwitch from "../ButtonSwitch"
+import styled from "styled-components"
 
-const Impressionen = ({ activeState }) => {
+const ButtonSwitchComponent = styled.div`
+  /* flex: 2;
+  display: flex; */
+  /* position: absolute; */
+  /* top: 10px;
+  left: 10px; */
+`
+
+const Impressionen = ({ activeState, onClick }) => {
   return (
     <>
       <div>
@@ -15,6 +24,9 @@ const Impressionen = ({ activeState }) => {
             Wohnumgebung.
           </b>
         </p>
+        <ButtonSwitchComponent>
+          <ButtonSwitch activeState={activeState} onClick={onClick} />
+        </ButtonSwitchComponent>
         {activeState === 0 && <Reality />}
         {activeState === 1 && <Dream />}
       </div>

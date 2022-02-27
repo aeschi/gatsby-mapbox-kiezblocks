@@ -1,18 +1,15 @@
 import React from "react"
 import styled from "styled-components"
-import button_dream from "../images/buttons/button_dream.svg"
-import button_reality from "../images/buttons/button_reality.svg"
+import button_dream from "../images/buttons/button_dreamon.svg"
+import button_reality from "../images/buttons/button_wakeup.svg"
 
 const ButtonSwitchComponent = styled.div`
-  /* color: #000000; */
   display: flex;
-  /* flex-direction: row; */
-  /* align-items: left; */
-  justify-content: space-around;
+  justify-content: space-evenly;
   box-sizing: border-box;
   button {
-    width: 16.6%;
-    padding: 2px;
+    height: 100%;
+    padding: 1px;
     margin: 1px;
     border: none;
     background: none;
@@ -20,16 +17,9 @@ const ButtonSwitchComponent = styled.div`
   button:hover {
     opacity: 75%;
   }
-  h4 {
-    margin: 0;
-    padding: 0;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    /* line-height: 0.2rem; */
-  }
 `
 
-const ButtonSwitch = ({ active, onClick }) => {
+const ButtonSwitch = ({ activeState, onClick }) => {
   const buttonContent = [
     {
       label: "Reality",
@@ -45,11 +35,11 @@ const ButtonSwitch = ({ active, onClick }) => {
 
   return (
     <ButtonSwitchComponent>
-      {active === 0 && (
+      {activeState === 0 && (
         <button
           type="Button"
           onClick={buttonContent[1].onClick}
-          isactive={active === 1 ? 1 : 0}
+          isactive={activeState === 1 ? 1 : 0}
         >
           <img
             src={buttonContent[1].buttonImg}
@@ -58,11 +48,11 @@ const ButtonSwitch = ({ active, onClick }) => {
           />
         </button>
       )}
-      {active === 1 && (
+      {activeState === 1 && (
         <button
           type="Button"
           onClick={buttonContent[0].onClick}
-          isactive={active === 1 ? 1 : 0}
+          isactive={activeState === 1 ? 1 : 0}
         >
           <img
             src={buttonContent[0].buttonImg}

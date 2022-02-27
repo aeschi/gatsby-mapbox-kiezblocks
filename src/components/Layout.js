@@ -2,7 +2,6 @@ import React from "react"
 import { useState } from "react"
 import PropTypes from "prop-types"
 import Buttons from "./Buttons"
-import ButtonSwitch from "./ButtonSwitch"
 import Content from "./Content"
 import styled from "styled-components"
 import Maps from "./Maps"
@@ -52,14 +51,6 @@ const MapRealComponent = styled.div`
 //   visibility: ${({ isVisible }) => (isVisible ? "visible" : "hidden")};
 // `
 
-const ButtonSwitchComponent = styled.div`
-  /* flex: 2;
-  display: flex; */
-  /* position: absolute; */
-  /* top: 10px;
-  left: 10px; */
-`
-
 const OnboardingStepsComponent = styled.div`
   position: absolute;
   bottom: 1rem;
@@ -87,13 +78,9 @@ const Layout = () => {
         <Content
           activeContent={activeLayer}
           activeState={activeLayerImp}
-          onClick={setActiveLayer}
+          setActiveLayer={setActiveLayer}
+          onClick={setActiveLayerImp}
         />
-        <ButtonSwitchComponent>
-          {activeLayer === 1 && (
-            <ButtonSwitch active={activeLayerImp} onClick={setActiveLayerImp} />
-          )}
-        </ButtonSwitchComponent>
       </BarComponent>
 
       <MapComponent>
