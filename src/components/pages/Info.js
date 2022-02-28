@@ -11,10 +11,10 @@ const Info = () => {
       <div>
         <h3>Zum Projekt</h3>
         <p>
-          Die Daten für die Website basieren auf dem Onlineworkshop <i>[T]räume
-          deinen Kiez frei</i> sowie auf Interviews. Der Workshop stand
-          allen Berliner:innen offen und fand am 08.12.21 statt. Es nahmen 17
-          Berliner:innen daran teil. Im Rahmen des Workshops konnten die
+          Die Daten für die Website basieren auf dem Onlineworkshop{" "}
+          <i>[T]räume deinen Kiez frei</i> sowie auf Interviews. Der Workshop
+          stand allen Berliner:innen offen und fand am 08.12.21 statt. Es nahmen
+          17 Berliner:innen daran teil. Im Rahmen des Workshops konnten die
           Teilnehmenden ihre subjektive Perspektive auf ihre unmittelbare
           Wohnumgebung in Berlin teilen, sowohl in Bezug auf dem Status quo,
           sowie für ihre Träume und Visionen. Die Datengenerierung geschah durch
@@ -53,7 +53,7 @@ const Info = () => {
           ein ausgewogenes Geschlechter- und Altersverhältnis besteht.
           <br />
           <br />
-          Das Projekt wurde am 31.03.2022 auf dieser Website veröffentlicht und
+          Das Projekt wurde am 28.02.2022 auf dieser Website veröffentlicht und
           entstand im Rahmen {""}
           <a
             href="https://uclab.fh-potsdam.de/mapping/"
@@ -66,11 +66,39 @@ const Info = () => {
           Wintersemester 2021/22.
           <br />
           <br />
-          Entwickelt und durchgeführt wurde das Projekt <i>[T]räume deinen Kiez
-          frei</i> von Anna Eschenbacher (Schwerpunkt: Web Development & Design),
-          Kalen Harris (Workshopdesign & Strategy), Leonie Schatter (Design &
-          Usability), Oskar Schmieg (Kartographie, Raumsoziologie &
-          Visualisierung) und Jonas Harant (Workshopdesign & Kommunikation).
+          Entwickelt und durchgeführt wurde das Projekt{" "}
+          <i>[T]räume deinen Kiez frei</i> von Anna Eschenbacher (Schwerpunkt:
+          Web Development & Design), Kalen Harris (Workshopdesign & Strategy),
+          Leonie Schatter (Design & Usability), Oskar Schmieg (Kartographie,
+          Raumsoziologie & Visualisierung) und Jonas Harant (Workshopdesign &
+          Kommunikation).
+          <br />
+          <br />
+          Die Interviews wurden mit Immo Janssen ({""}
+          <a
+            href="https://www.baustelle-gemeinwohl.de/akteure/akoer/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            AKöR
+          </a>
+          ), Alexander Dziekan ({""}
+          <a
+            href="https://changing-cities.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Changing Cities
+          </a>
+          ) und Till Steinmeier ({""}
+          <a
+            href="https://schoene-staedte.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Schöne Städte
+          </a>
+          ) durchgeführt.
           <br />
           <br />
           Vielen Dank an alle Beteiligten!

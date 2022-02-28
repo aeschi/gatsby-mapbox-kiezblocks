@@ -4,7 +4,7 @@ import Button_tour from "../images/buttons/button_tour.svg"
 
 const OnboardingSteps = () => {
   const [joyride, setJoyride] = useState({
-    run: false,
+    run: true,
     steps: [
       {
         target: "body",

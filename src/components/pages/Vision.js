@@ -12,6 +12,10 @@ const Vision = () => {
           </b>
         </p>
         <p>
+          Finde auf der Karte eine #Kiezblock-Initiative in Deiner Nähe und
+          setzt dich in Verbindung, um mehr zu erfahren.
+        </p>
+        <p>
           Die Teilnehmer unseres Projekts berichteten, dass sie sich in der
           Stadt gestresst und überfordert fühlen, vor allem in Gegenden mit viel
           Verkehr. Alle Projektteilnehmer:innen träumen davon, in einem Kiez zu
@@ -40,10 +44,6 @@ const Vision = () => {
           entwickeln sie Pläne zur Reduzierung des Verkehrsflusses, sammeln
           Unterschriften und legen sie dem Bezirk zur Genehmigung und Umsetzung
           vor.
-        </p>
-        <p>
-          Finde auf der Karte eine #Kiezblock-Initiative in Deiner Nähe und
-          setzt dich in Verbindung, um mehr zu erfahren.
         </p>
       </div>
     </>

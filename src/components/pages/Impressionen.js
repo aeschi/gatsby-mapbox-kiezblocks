@@ -24,11 +24,12 @@ const Impressionen = ({ activeState, onClick }) => {
             Wohnumgebung.
           </b>
         </p>
+        {activeState === 0 && <Reality />}
+        {activeState === 1 && <Dream />}
+
         <ButtonSwitchComponent>
           <ButtonSwitch activeState={activeState} onClick={onClick} />
         </ButtonSwitchComponent>
-        {activeState === 0 && <Reality />}
-        {activeState === 1 && <Dream />}
       </div>
     </>
   )

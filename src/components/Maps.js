@@ -25,6 +25,10 @@ const MapsComponent = styled.div`
 
     font-size: 12px;
   }
+
+  .mapboxgl-popup-content {
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  }
 `
 
 const MapThemaComponent = styled.div`
@@ -33,35 +37,7 @@ const MapThemaComponent = styled.div`
   }
 
   .mapboxgl-popup-content {
-    /* font: 400 15px/22px "Source Sans Pro", "Helvetica Neue", sans-serif; */
-    /* padding: 0; */
-    /* width: 180px; */
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.008);
-  }
-
-  .mapboxgl-popup-content h3 {
-    /* background: #91c949;
-    color: #fff;
-    margin: 0;
-    padding: 10px;
-    border-radius: 3px 3px 0 0;
-    font-weight: 700;
-    margin-top: -15px; */
-  }
-
-  .mapboxgl-popup-content h4 {
-    /* margin: 0;
-    padding: 10px;
-    font-weight: 400; */
-    /* background: #91c949; */
-  }
-
-  .mapboxgl-popup-content div {
-    /* padding: 10px; */
-  }
-
-  .mapboxgl-popup-anchor-top > .mapboxgl-popup-content {
-    /* margin-top: 15px; */
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.01);
   }
 
   .mapboxgl-popup-anchor-top > .mapboxgl-popup-tip {
@@ -72,14 +48,9 @@ const MapThemaComponent = styled.div`
 const MapQualityComponent = styled.div`
 
   .mapboxgl-popup-content {
-    /* font: 400 15px/22px "Source Sans Pro", "Helvetica Neue", sans-serif; */
-    /* padding: 0; */
     width: 400px;
   }
 `
-
-/* <Component isVisible={mapLayers.isMapRealActive ? 1 : 0} /> */
-/* visibility: ${({ isVisible }) => (isVisible ? "visible" : "hidden")}; */
 
 const Maps = ({
   activeLayer,

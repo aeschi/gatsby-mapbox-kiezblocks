@@ -35,7 +35,7 @@ const ButtonSwitchPlace = ({ activeState, onClick }) => {
 
   return (
     <ButtonSwitchComponent>
-      {activeState === 0 && (
+      {/* {activeState === 0 && ( */}
         <button
           type="Button"
           onClick={buttonContent[1].onClick}
@@ -47,8 +47,8 @@ const ButtonSwitchPlace = ({ activeState, onClick }) => {
             alt={buttonContent[1].label}
           />
         </button>
-      )}
-      {activeState === 1 && (
+      {/* // )} */}
+      {/* {activeState === 1 && ( */}
         <button
           type="Button"
           onClick={buttonContent[0].onClick}
@@ -60,7 +60,7 @@ const ButtonSwitchPlace = ({ activeState, onClick }) => {
             alt={buttonContent[0].label}
           />
         </button>
-      )}
+      {/* )} */}
     </ButtonSwitchComponent>
   )
 }

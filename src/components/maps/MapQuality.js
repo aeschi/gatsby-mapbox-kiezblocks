@@ -129,7 +129,7 @@ const MapQuality = ({
     })
 
     if (activePlace === 0) {
-      map.easeTo({ center: [13.41, 52.52], zoom: 14, duration: 3000 })
+      map.easeTo({ center: [13.41, 52.52], zoom: 13, duration: 3000 })
     } else if (activePlace === 1) {
       map.easeTo({ center: [13.311, 52.508], zoom: 14, duration: 3000 })
     }
@@ -150,8 +150,8 @@ const MapQuality = ({
         .setLngLat(lngLatStreet)
         .setHTML(
           `
-          <p>${featureStreet.properties.Input}</p >
-            <p>tag: ${featureStreet.properties.Tags}</p>
+          <h4>${featureStreet.properties.Titel}</h4 >
+            <p>${featureStreet.properties.Zusammenfassung}</p>
           `
         )
         .addTo(map)
@@ -173,8 +173,8 @@ const MapQuality = ({
         .setLngLat(lngLatArea)
         .setHTML(
           `
-          <p>${featureArea.properties.Input}</p >
-            <p>tag: ${featureArea.properties.Tags}</p>
+          <h4>${featureArea.properties.Titel}</h4 >
+            <p>${featureArea.properties.Zusammenfassung}</p>
           `
         )
         .addTo(map)

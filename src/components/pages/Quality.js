@@ -6,8 +6,6 @@ const Quality = ({ onClickText, activePlace, setActivePlace }) => {
     <>
       <div>
         <h3>Qualität</h3>
-
-        <ButtonSwitchPlace activeState={activePlace} onClick={setActivePlace} />
         <p>
           <b>
             Diskussionen in einem Workshop und Interviews geben Hinweise auf die
@@ -28,7 +26,7 @@ const Quality = ({ onClickText, activePlace, setActivePlace }) => {
           Gedanken zur Qualität des Raumes geben.{" "}
           {/* <a onClick={onClickText(4)}>(Mehr Informationen zum Workshop.)</a> */}
           {/* <button onClick={onClickText(3)}> */}
-          (Mehr Informationen zum Workshop unter "zum Projekt")
+          (Mehr Informationen zum Workshop unter »zum Projekt«)
           {/* </button> */}
           {/* <a onClick={onClick(4)}>(Mehr Informationen zum Workshop.)</a> */}
         </p>
@@ -77,6 +75,21 @@ const Quality = ({ onClickText, activePlace, setActivePlace }) => {
           betrachtet und möglichst viele Beteiligte in die Planung mit
           einbezogen werden, entsteht langfristig ein Ort, den alle schätzen und
           für den es sich lohnt Kompromisse einzugehen.
+        </p>
+        <ButtonSwitchPlace activeState={activePlace} onClick={setActivePlace} />
+        <p>
+          Zusätzlich zu den Interviews haben wir den Karl-August-Platz in
+          Charlottenburg und einen kleinen Bereich des Alexanderplatzes jeweils
+          eine Stunde beobachtet. Wir haben dabei die Anzahl der
+          Verkehrsteilnehmer gezählt, sowie die Verkehrsmittel und ob sie in
+          Gruppen oder mit Kindern unterwegs waren. Da der Alexanderplatz
+          aufgrund der Einkaufsmöglichkeiten sehr stark frequentiert ist, haben
+          wir den direkten Weg neben den Ladeneingängen nicht in die Messung mit
+          einbezogen. So sollen die Messdaten etwas vergleichbarer sein. Der
+          jeweils beobachtete Bereich ist grün gekennzeichnet. Außerdem gibt ein
+          Foto, aufgenommen vom Beobachtungsstandort, einen visuellen Eindruck
+          von der Situation vor Ort. (Die Daten zur Zählung werden in den
+          nächsten Tagen auf der Karte eingefügt.)
         </p>
       </div>
     </>
