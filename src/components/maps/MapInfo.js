@@ -115,31 +115,31 @@ const MapInfo = ({ activeMap, currentLocation, setLocation }) => {
 
     })
 
-    map.on("mouseover", () => {
-      const features = map.queryRenderedFeatures( {
-        layers: [activeData[activeMap].dataLayer],
-      })
+    // map.on("mouseover", () => {
+    //   const features = map.queryRenderedFeatures( {
+    //     layers: [activeData[activeMap].dataLayer],
+    //   })
 
-      if (!features.length) {
-        return
-      }
-      const feature = features[0]
+    //   if (!features.length) {
+    //     return
+    //   }
+    //   const feature = features[0]
 
-      console.log(features)
+    //   console.log(features)
 
-      let lngLat = feature.geometry.coordinates
+    //   let lngLat = feature.geometry.coordinates
 
-      const popup = new mapboxgl.Popup({ offset: [0, -15] })
-        .setLngLat(lngLat)
-        .setHTML(
-          `<h4>${feature.properties.Annotaion}<h4>
-          <a href="https://uclab.fh-potsdam.de/mapping/" target="_blank" rel="noopener noreferrer"><section>Mapping Cities - Making Cities Seminar</section></a>
+    //   const popup = new mapboxgl.Popup({ offset: [0, -15] })
+    //     .setLngLat(lngLat)
+    //     .setHTML(
+    //       `<h4>${feature.properties.Annotaion}<h4>
+    //       <a href="https://uclab.fh-potsdam.de/mapping/" target="_blank" rel="noopener noreferrer"><section>Mapping Cities - Making Cities Seminar</section></a>
           
-          `
-        )
-        .addTo(map)
+    //       `
+    //     )
+    //     .addTo(map)
 
-    })
+    // })
 
     setMap(map)
 
