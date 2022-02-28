@@ -42,7 +42,7 @@ const OnboardingSteps = () => {
             <p>
               Auf unserer Karte siehst du interaktive Datenpunkte. Du kannst
               dich auf der Karte bewegen und Gefühle, Gedanken und Kommentare zu
-              den Orten entdecken.
+              den Orten entdecken. 
             </p>
           </div>
         ),
