@@ -115,7 +115,6 @@ const MapThema = ({ activeMap, currentLocation, setLocation }) => {
           count++
         } else {
           clearInterval(id)
-          console.log("cleared")
         }
       }, 750)
     })

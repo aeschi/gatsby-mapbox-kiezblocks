@@ -35,6 +35,10 @@ const activeData = [
     title: "",
   },
   {
+    dataLayer: "quality_area",
+    title: "",
+  },
+  {
     dataLayer: "vision-kiezblocks",
     title: "",
   },
@@ -44,7 +48,12 @@ const activeData = [
   },
 ]
 
-const MapQuality = ({ activeMap, currentLocation, setLocation, activePlace }) => {
+const MapQuality = ({
+  activeMap,
+  currentLocation,
+  setLocation,
+  activePlace,
+}) => {
   const mapContainerRef = useRef(null)
 
   const [map, setMap] = useState(null)
@@ -77,7 +86,6 @@ const MapQuality = ({ activeMap, currentLocation, setLocation, activePlace }) =>
       "top-right"
     )
 
-
     map.on("load", () => {
       map.setLayoutProperty("quality_flaechen", "visibility", "visible")
       map.setLayoutProperty(
@@ -96,11 +104,15 @@ const MapQuality = ({ activeMap, currentLocation, setLocation, activePlace }) =>
         "visible"
       )
       map.setLayoutProperty(
+        activeData[activeMap].dataLayer + "_area",
+        "visibility",
+        "visible"
+      )
+      map.setLayoutProperty(
         activeData[activeMap].dataLayer + "_kap",
         "visibility",
         "visible"
       )
-
     })
 
     map.on("moveend", () => {
@@ -114,25 +126,58 @@ const MapQuality = ({ activeMap, currentLocation, setLocation, activePlace }) =>
     })
 
     map.on("click", event => {
-      const features = map.queryRenderedFeatures(event.point, {
+      const featuresStreet = map.queryRenderedFeatures(event.point, {
         layers: [activeData[activeMap].dataLayer],
       })
 
-      if (!features.length) {
+      if (!featuresStreet.length) {
         return
       }
-      const feature = features[0]
-      let lngLat = feature.geometry.coordinates
+      const featureStreet = featuresStreet[0]
+      let lngLatStreet = featureStreet.geometry.coordinates[0]
 
       const popup = new mapboxgl.Popup({ offset: [0, -15] })
-        .setLngLat(lngLat)
+        .setLngLat(lngLatStreet)
         .setHTML(
           `
-          <h4>Beobachtungspunkt</h4>
-            <img src="${feature.properties.link}" width="160px"/>
+          <p>Gefühl: ${featureStreet.properties.Input}</p >
+            <p>${featureStreet.properties.Tags}</p>
           `
         )
         .addTo(map)
+    })
+    setMap(map)
+
+    map.on("click", event => {
+      const featuresArea = map.queryRenderedFeatures(event.point, {
+        layers: [activeData[3].dataLayer],
+      })
+      if (!featuresArea.length) {
+        return
+      }
+
+      const featureArea = featuresArea[0]
+      let lngLatArea = featureArea.geometry.coordinates[0][0]
+
+      const popupArea = new mapboxgl.Popup({ offset: [0, -15] })
+        .setLngLat(lngLatArea)
+        .setHTML(
+          `
+          <p>Gefühl: ${featureArea.properties.Input}</p >
+            <p>${featureArea.properties.Tags}</p>
+          `
+        )
+        .addTo(map)
+
+      // const popup = new mapboxgl.Popup({ offset: [0, -15] })
+      //   .setLngLat(lngLat)
+      //   .setHTML(
+      //     `
+      //     <h4>Beobachtungspunkt</h4>
+      //       <img src="${feature.properties.link}" width="160px"/>
+      //     `
+      //   )
+      //   .addTo(map)
     })
     setMap(map)
 

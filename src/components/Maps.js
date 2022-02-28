@@ -28,9 +28,9 @@ const MapsComponent = styled.div`
 `
 
 const MapThemaComponent = styled.div`
-  /* .mapboxgl-popup-close-button {
+  .mapboxgl-popup-close-button {
     display: none;
-  } */
+  }
 
   .mapboxgl-popup-content {
     /* font: 400 15px/22px "Source Sans Pro", "Helvetica Neue", sans-serif; */
