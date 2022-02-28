@@ -117,13 +117,14 @@ const MapQuality = ({
 
     map.on("moveend", () => {
       setLocation(getNewLocation(map.getCenter(), map.getZoom()))
-
-      // if(activePlace===0){
-      //   map.panTo([13.41, 52.52], { duration: 3000 })
-      // } else if (activePlace === 1) {
-      //   map.panTo([13.311, 52.508], { duration: 3000 })
-      // }
     })
+
+    if (activePlace === 0) {
+      map.easeTo({ center: [13.41, 52.52], zoom: 14, duration: 3000 })
+    } else if (activePlace === 1) {
+      map.easeTo({ center: [13.311, 52.508], zoom: 14, duration: 3000 })
+    }
+    console.log(activePlace)
 
     map.on("click", event => {
       const featuresStreet = map.queryRenderedFeatures(event.point, {
@@ -182,7 +183,7 @@ const MapQuality = ({
     setMap(map)
 
     return () => map.remove()
-  }, [activeMap, currentLocation, setLocation])
+  }, [activeMap, currentLocation, setLocation, activePlace])
 
   return <div ref={mapContainerRef} style={mapContainerStyle} />
 }

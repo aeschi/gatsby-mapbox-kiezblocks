@@ -78,7 +78,9 @@ const MapVision = ({ activeMap, currentLocation, setLocation }) => {
         "visibility",
         "visible"
       )
+      map.easeTo({center: [13.421, 52.538], zoom: 10.9, duration: 3000});
     })
+    
 
     map.on("moveend", () => {
       setLocation(
