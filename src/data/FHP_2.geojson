@@ -1,7 +1,0 @@
-{
-"type": "FeatureCollection",
-"name": "FHP_2",
-"features": [
-{ "type": "Feature", "properties": { "id": 1, "Annotaion": "Fachhochschule Potsdam" }, "geometry": { "type": "Point", "coordinates": [ 367414.187023695441894, 5808832.040976669639349 ] } }
-]
-}
