@@ -96,7 +96,7 @@ const MapImpressionenDream = ({ activeMap, currentLocation, setLocation }) => {
         popup.addTo(map)
       }
 
-      map.easeTo({center:  [13.460, 52.514], zoom: 14 , duration: 4000});
+      map.easeTo({center:  [13.460, 52.514], zoom: 14 , duration: 3000});
     })
 
     // map.on("data", () => {
