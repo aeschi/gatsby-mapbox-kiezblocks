@@ -69,6 +69,15 @@ const MapThemaComponent = styled.div`
   }
 `
 
+const MapQualityComponent = styled.div`
+
+  .mapboxgl-popup-content {
+    /* font: 400 15px/22px "Source Sans Pro", "Helvetica Neue", sans-serif; */
+    /* padding: 0; */
+    width: 400px;
+  }
+`
+
 /* <Component isVisible={mapLayers.isMapRealActive ? 1 : 0} /> */
 /* visibility: ${({ isVisible }) => (isVisible ? "visible" : "hidden")}; */
 
@@ -106,12 +115,14 @@ const Maps = ({
       )}
 
       {activeLayer === 2 && (
+        <MapQualityComponent>
         <MapQuality
           activeMap={activeLayer}
           currentLocation={currentLocation}
           setLocation={setCurrentLocation}
           activePlace={activePlace}
-        />
+          />
+          </MapQualityComponent>
       )}
       {activeLayer === 3 && (
         <MapVision

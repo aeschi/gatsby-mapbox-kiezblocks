@@ -39,6 +39,10 @@ const activeData = [
     title: "",
   },
   {
+    dataLayer: "quality_foto",
+    title: "",
+  },
+  {
     dataLayer: "vision-kiezblocks",
     title: "",
   },
@@ -109,6 +113,11 @@ const MapQuality = ({
         "visible"
       )
       map.setLayoutProperty(
+        activeData[activeMap].dataLayer + "_foto",
+        "visibility",
+        "visible"
+      )
+      map.setLayoutProperty(
         activeData[activeMap].dataLayer + "_kap",
         "visibility",
         "visible"
@@ -141,8 +150,8 @@ const MapQuality = ({
         .setLngLat(lngLatStreet)
         .setHTML(
           `
-          <p>Gefühl: ${featureStreet.properties.Input}</p >
-            <p>${featureStreet.properties.Tags}</p>
+          <p>${featureStreet.properties.Input}</p >
+            <p>tag: ${featureStreet.properties.Tags}</p>
           `
         )
         .addTo(map)
@@ -164,21 +173,34 @@ const MapQuality = ({
         .setLngLat(lngLatArea)
         .setHTML(
           `
-          <p>Gefühl: ${featureArea.properties.Input}</p >
-            <p>${featureArea.properties.Tags}</p>
+          <p>${featureArea.properties.Input}</p >
+            <p>tag: ${featureArea.properties.Tags}</p>
           `
         )
         .addTo(map)
+    })
+    setMap(map)
 
-      // const popup = new mapboxgl.Popup({ offset: [0, -15] })
-      //   .setLngLat(lngLat)
-      //   .setHTML(
-      //     `
-      //     <h4>Beobachtungspunkt</h4>
-      //       <img src="${feature.properties.link}" width="160px"/>
-      //     `
-      //   )
-      //   .addTo(map)
+    map.on("click", event => {
+      const featuresFoto = map.queryRenderedFeatures(event.point, {
+        layers: [activeData[4].dataLayer],
+      })
+      if (!featuresFoto.length) {
+        return
+      }
+
+      const featureFoto = featuresFoto[0]
+      let lngLatFoto = featureFoto.geometry.coordinates
+
+      const popup = new mapboxgl.Popup({ offset: [0, -15] })
+        .setLngLat(lngLatFoto)
+        .setHTML(
+          `
+          <h4>Beobachtungspunkt</h4>
+            <img src="${featureFoto.properties.link}" width="380px"/>
+          `
+        )
+        .addTo(map)
     })
     setMap(map)
 
