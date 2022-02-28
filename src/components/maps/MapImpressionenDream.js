@@ -100,11 +100,34 @@ const MapImpressionen = ({ activeMap, currentLocation, setLocation }) => {
     //   }
     // })
 
+    let count = 0
     map.on("moveend", () => {
-      setLocation(
-        getNewLocation( map.getCenter(), map.getZoom())
-      )
+      setLocation(getNewLocation(map.getCenter(), map.getZoom()))
+
+      // open random popup
+      const features = map.queryRenderedFeatures({
+        layers: [activeData[activeMap].dataLayer],
+      })
+
+      if (features.length) {
+        if (count < 1) {
+          const feature = features[4]
+          const lngLat = feature.geometry.coordinates
+          const popup = new mapboxgl.Popup({ offset: [0, -15] })
+            .setLngLat(lngLat)
+            .setHTML(
+              `<h4>Gefühl: ${feature.properties.title}</h4 >
+          <p>${feature.properties.descriptio}</p>
+        `
+            )
+          popup.addTo(map)
+
+          count++
+        }
+      }
     })
+
+
 
     map.on("click", event => {
       const features = map.queryRenderedFeatures(event.point, {
