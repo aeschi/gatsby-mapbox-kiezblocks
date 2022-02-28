@@ -56,7 +56,7 @@ const MapThema = ({ activeMap, currentLocation, setLocation }) => {
       center: [currentLocation[0], currentLocation[1]],
       zoom: currentLocation[2],
       minZoom: 9,
-      maxZoom: 18,
+      maxZoom: 12,
     })
 
     map.addControl(
@@ -94,8 +94,9 @@ const MapThema = ({ activeMap, currentLocation, setLocation }) => {
         const features = map.queryRenderedFeatures({
           layers: [activeData[activeMap].dataLayer],
         })
-
-        if (features.length) {
+        if (!features.length) {
+          return
+        }
           // console.log("features length")
           const feature = features[count]
           // console.log(features)
@@ -110,7 +111,7 @@ const MapThema = ({ activeMap, currentLocation, setLocation }) => {
           popup.addTo(map)
 
           // map.panTo(feature.geometry.coordinates, { duration: 1000 })
-        }
+        
         if (count < features.length - 1) {
           count++
         } else {
@@ -133,7 +134,7 @@ const MapThema = ({ activeMap, currentLocation, setLocation }) => {
 
       const popup = new mapboxgl.Popup({ offset: [0, -15] })
         .setLngLat(lngLat)
-        .setHTML(`<h4>${feature.properties.title}</h4 >`)
+        .setHTML(`<p>${feature.properties.title}</p >`)
         .addTo(map)
     })
 
