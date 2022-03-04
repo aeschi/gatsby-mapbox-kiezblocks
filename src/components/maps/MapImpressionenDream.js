@@ -139,8 +139,6 @@ const MapImpressionen = ({ activeMap, currentLocation, setLocation }) => {
       }
       const feature = features[0]
 
-      console.log(features)
-
       let lngLat = feature.geometry.coordinates
 
       const popup = new mapboxgl.Popup({ offset: [0, -15] })
