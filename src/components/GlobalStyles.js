@@ -27,13 +27,13 @@ const GlobalStyle = createGlobalStyle`
        url(${IBMPlexSansSemiBold}) format('woff');
        font-weight: bold;
 }
-/* 
+
 @font-face {
   font-family: 'IBMPlexSansReg';
   src: url(${IBMPlexSansLight}) format('woff2'),
        url(${IBMPlexSansLight}) format('woff');
        font-weight: lighter;
-} */
+}
 
 html {
   font-size: 16px;
@@ -74,6 +74,16 @@ h5{
   margin-top: 1.5rem;
   margin-bottom: 0.5rem;
 }
+
+
+h6{
+  font-family: 'IBMPlexSansReg';
+  font-weight: lighter;
+  color: gray;
+  padding: 0;
+  margin-top: .2rem;
+  margin-bottom: 0rem;
+  }
 
 p {
   font-family: 'IBMPlexSansReg';

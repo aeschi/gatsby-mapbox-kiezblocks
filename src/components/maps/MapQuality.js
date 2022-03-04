@@ -150,7 +150,8 @@ const MapQuality = ({
         .setHTML(
           `
           <h4>${featureStreet.properties.Titel}</h4 >
-            <p>${featureStreet.properties.Zusammenfassung}</p>
+          <p>${featureStreet.properties.Zusammenfassung}</p>
+          <h6>${featureStreet.properties.AngabeInterviewter}</h6>
           `
         )
         .addTo(map)
@@ -173,7 +174,8 @@ const MapQuality = ({
         .setHTML(
           `
           <h4>${featureArea.properties.Titel}</h4 >
-            <p>${featureArea.properties.Zusammenfassung}</p>
+          <p>${featureArea.properties.Zusammenfassung}</p>
+          <h6>${featureArea.properties.AngabeInterviewter}</h6>
           `
         )
         .addTo(map)

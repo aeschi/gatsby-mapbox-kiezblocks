@@ -50,7 +50,9 @@ const MapQualityComponent = styled.div`
   .mapboxgl-popup-content {
     width: 400px;
   }
+
 `
+
 
 const Maps = ({
   activeLayer,
