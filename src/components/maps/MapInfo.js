@@ -12,15 +12,59 @@ const mapContainerStyle = {
 
 const activeData = [
   {
-    dataLayer: "thema-dream-reality",
+    dataLayer: "thema-dream-reality_glow",
     title: "title",
   },
   {
-    dataLayer: "impression_reality",
+    dataLayer: "impression_reality_glow",
     title: "Gefühl: ",
   },
   {
+    dataLayer: "quality_flaechen",
+    title: "",
+  },
+  {
+    dataLayer: "vision-kiezblocks_glow",
+    title: "",
+  },
+  {
+    dataLayer: "info",
+    title: "",
+  },
+  {
+    dataLayer: "quality_alex",
+    title: "",
+  },
+  {
+    dataLayer: "quality_kap",
+    title: "",
+  },
+  {
+    dataLayer: "quality_streets",
+    title: "",
+  },
+  {
+    dataLayer: "quality_foto",
+    title: "",
+  },
+  {
     dataLayer: "quality",
+    title: "",
+  },
+  {
+    dataLayer: "quality_area",
+    title: "",
+  },
+  {
+    dataLayer: "impression_traum",
+    title: "",
+  },
+  {
+    dataLayer: "impression_reality",
+    title: "",
+  },
+  {
+    dataLayer: "thema-dream-reality",
     title: "",
   },
   {
@@ -28,7 +72,7 @@ const activeData = [
     title: "",
   },
   {
-    dataLayer: "info",
+    dataLayer: "impression_traum_glow",
     title: "",
   },
 ]
@@ -71,11 +115,6 @@ const MapInfo = ({ activeMap, currentLocation, setLocation }) => {
       activeData.map((item) => {
         map.setLayoutProperty(
           item.dataLayer,
-          "visibility",
-          "visible"
-        )
-        map.setLayoutProperty(
-          item.dataLayer + "_glow",
           "visibility",
           "visible"
         )
